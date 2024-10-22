@@ -122,41 +122,43 @@
             </div>
         </div>
     </section>
-    <div id="fullpage">
+    <div id="full-wrap">
+      <div id="fullpage">
         <section id="sec4" class="section active">
-            <div class="inner-wrap">
-                <div class="desc-wrap regular-ver">
-                    <span>Learning Points</span>
-                    <h3>퀴즈로 마무리하는 동화읽기</h3>
-                    <p>
-                        동화를 다 읽은 후 퀴즈로 독서를 마무리해요!<br/>
-                        각 이야기를 기반으로 구성된 퀴즈는 아이들이 이야기를<br/>
-                        기억하고 이해하는 데 도움을 주며 사고력을 자극합니다.
-                    </p>
-                </div>
-                <div class="image-wrap">
-                    <img src="resources/images/contents/sec4_phone1.svg" alt="" />
-                </div>
+          <div class="inner-wrap">
+            <div class="desc-wrap regular-ver">
+              <span>Learning Points</span>
+              <h3>퀴즈로 마무리하는 동화읽기</h3>
+              <p>
+                동화를 다 읽은 후 퀴즈로 독서를 마무리해요!<br/>
+                각 이야기를 기반으로 구성된 퀴즈는 아이들이 이야기를<br/>
+                기억하고 이해하는 데 도움을 주며 사고력을 자극합니다.
+              </p>
             </div>
+            <div class="image-wrap">
+              <img src="resources/images/contents/sec4_phone1.svg" alt="" />
+            </div>
+          </div>
         </section>
         <section id="sec5" class="section">
+          <div class="inner-wrap">
             <div class="inner-wrap">
-                <div class="inner-wrap">
-                    <div class="desc-wrap regular-ver">
-                        <span>Only Prokidsbook</span>
-                        <h3>읽고 싶은 동화의 주인공이 되어봐요!</h3>
-                        <p>
-                            엄마, 나 이 동화의 주인공이 돼보고 싶어!<br/>
-                            아이가 읽고 싶은 동화의 주인공을 우리 아이로 바꿔보세요.<br/>
-                            읽기 싫어하던 동화도 이제는 흥미진진하게 읽을 수 있습니다.
-                        </p>
-                    </div>
-                    <div class="image-wrap">
-                        <img src="resources/images/contents/sec4_phone2.svg" alt="" />
-                    </div>
-                </div>
+              <div class="desc-wrap regular-ver">
+                <span>Only Prokidsbook</span>
+                <h3>읽고 싶은 동화의 주인공이 되어봐요!</h3>
+                <p>
+                  엄마, 나 이 동화의 주인공이 돼보고 싶어!<br/>
+                  아이가 읽고 싶은 동화의 주인공을 우리 아이로 바꿔보세요.<br/>
+                  읽기 싫어하던 동화도 이제는 흥미진진하게 읽을 수 있습니다.
+                </p>
+              </div>
+              <div class="image-wrap">
+                <img src="resources/images/contents/sec4_phone2.svg" alt="" />
+              </div>
             </div>
+          </div>
         </section>
+      </div>
     </div>
     <section id="sec6" class="sec">
         <div class="inner-wrap">
@@ -507,10 +509,13 @@
     */
   }
   /* sec4,sec5 */
-  const element = document.querySelector('#fullpage');
+  const element = document.querySelector('#full-wrap');
   const sec4 = document.querySelector('#sec4');
   const sec5 = document.querySelector('#sec5');
-
+  const sec6 = document.querySelector('#sec6');
+  console.log("asd",sec6.clientHeight)
+  // element.style.marginBottom += sec6.clientHeight
+  element.style.height += `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2)}px`;
   const elementTopOffset = element.offsetTop;
   const elementFullHeight = element.offsetHeight;
   const halfPageHeight = elementFullHeight / 2;
@@ -548,7 +553,6 @@
     ) {
       element.style.position = "sticky";
       element.style.top = "0";
-      element.style.paddingTop = "100vh";
     } else {
       element.style.position = "relative";
     }
