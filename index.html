@@ -6,12 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="resources/css/style.css">
-
-    <!-- lib -->
-    <script src="resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- js -->
     <script src="resources/js/main.js"></script>
@@ -19,30 +14,9 @@
     <title>Prokids Book</title>
 </head>
 <body>
-<!-- 헤더 영역-->
-<header>
-    <div class="inner-wrap">
-        <h1><a href="#"><img src="resources/images/header/proKids_logo.svg" alt="ProKids"></a></h1>
-        <nav>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li>
-                    <div class="select-box ">
-                        <button class="label" data-value="KOR">
-                            <img src="resources/images/header/korea.svg" alt="한국" class="label-img" />
-                            <span>KOR</span>
-                        </button>
-                        <ul class="option-list"></ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<!-- // 헤더 영역 -->
 <!-- 컨텐츠 영역 -->
-<div class="contents-wrap">
+<div id="contents" class="contents-wrap">
+    <!-- 1. 메인 화면 -->
     <section id="sec1" class="sec">
         <img src="resources/images/contents/sec1_bg.png" alt="배경1" />
         <div class="inner-wrap">
@@ -53,13 +27,16 @@
                     <span>우리 아이만의 특별한 교육</span>
                 </h2>
                 <div class="btn-wrap">
-                    <a href="#" class="download-badge google"><img src="resources/images/contents/google.svg" alt="구글 다운로드"></a>
-                    <a href="#" class="download-badge apple"><img src="resources/images/contents/apple.svg" alt="애플 다운로드"></a>
+                    <a href="#" class="download-badge apple"><img src="resources/images/contents/apple-download.png" alt="애플 다운로드"></a>
+                    <a href="#" class="download-badge google"><img src="resources/images/contents/google-download.png" alt="구글 다운로드"></a>
                 </div>
             </div>
             <span class="star"></span>
         </div>
     </section>
+    <!-- // 1. 메인화면 -->
+
+    <!-- 2. Educational Innovation : 우리 아이가 주인공인 특별한 맞춤형 동화 -->
     <section id="sec2" class="sec">
         <div class="inner-wrap">
             <div class="desc-wrap">
@@ -88,6 +65,9 @@
             </div>
         </div>
     </section>
+    <!-- //  2. Educational Innovation : 우리 아이가 주인공인 특별한 맞춤형 동화 -->
+
+    <!-- 3. Learning Points : 글로벌 감각을 키우는 언어 학습 -->
     <section id="sec3" class="sec">
         <div class="inner-wrap">
             <div class="desc-wrap regular-ver">
@@ -122,10 +102,14 @@
             </div>
         </div>
     </section>
+    <!-- // 3. Learning Points : 글로벌 감각을 키우는 언어 학습 -->
+
+    <!-- Sec4, Sec5 : fullpage 관련 기능 적용(라이브러리X) -->
     <div id="full-wrap">
-      <div id="fullpage">
-        <section id="sec4" class="section active">
-          <div class="inner-wrap">
+        <div id="fullpage">
+            <!-- 4. Learning Points : 퀴즈로 마무리하는 동화읽기  -->
+            <section id="sec4" class="section active">
+            <div class="inner-wrap">
             <div class="desc-wrap regular-ver">
               <span>Learning Points</span>
               <h3>퀴즈로 마무리하는 동화읽기</h3>
@@ -136,30 +120,36 @@
               </p>
             </div>
             <div class="image-wrap">
-              <img src="resources/images/contents/sec4_phone1.svg" alt="" />
+              <img src="resources/images/contents/sec4_phone1.png" class="pc-only" alt="" />
+              <img src="resources/images/contents/sec4_phone1_r.svg" class="mobile-only" alt="" />
             </div>
-          </div>
-        </section>
-        <section id="sec5" class="section">
-          <div class="inner-wrap">
-            <div class="inner-wrap">
-              <div class="desc-wrap regular-ver">
-                <span>Only Prokidsbook</span>
-                <h3>읽고 싶은 동화의 주인공이 되어봐요!</h3>
-                <p>
-                  엄마, 나 이 동화의 주인공이 돼보고 싶어!<br/>
-                  아이가 읽고 싶은 동화의 주인공을 우리 아이로 바꿔보세요.<br/>
-                  읽기 싫어하던 동화도 이제는 흥미진진하게 읽을 수 있습니다.
-                </p>
-              </div>
-              <div class="image-wrap">
-                <img src="resources/images/contents/sec4_phone2.svg" alt="" />
-              </div>
             </div>
-          </div>
-        </section>
-      </div>
+            </section>
+            <!-- // 4. Learning Points : 퀴즈로 마무리하는 동화읽기  -->
+
+            <!-- 5. Only Prokidsbook : 읽고 싶은 동화의 주인공이 되어봐요! -->
+            <section id="sec5" class="section">
+                <div class="inner-wrap">
+                    <div class="desc-wrap regular-ver">
+                        <span>Only Prokidsbook</span>
+                        <h3>읽고 싶은 동화의 주인공이 되어봐요!</h3>
+                        <p>
+                            엄마, 나 이 동화의 주인공이 돼보고 싶어!<br/>
+                            아이가 읽고 싶은 동화의 주인공을 우리 아이로 바꿔보세요.<br/>
+                            읽기 싫어하던 동화도 이제는 흥미진진하게 읽을 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="image-wrap">
+                        <img src="resources/images/contents/sec4_phone2.svg" class="pc-only" alt="" />
+                        <img src="resources/images/contents/sec4_phone2_r.svg" class="mobile-only" alt="" />
+                    </div>
+                </div>
+            </section>
+            <!-- // 5. Only Prokidsbook : 읽고 싶은 동화의 주인공이 되어봐요! -->
+        </div>
     </div>
+
+    <!-- 6. Only Prokidsbook : 다양한 그림체로 즐겨요 -->
     <section id="sec6" class="sec">
         <div class="inner-wrap">
             <div class="desc-wrap regular-ver">
@@ -194,6 +184,9 @@
             </div>
         </div>
     </section>
+    <!-- // 6. Only Prokidsbook : 다양한 그림체로 즐겨요 -->
+
+    <!-- 7. Customer Reviews : 부모님의 생생한 프로키즈북 사용 후기 -->
     <section id="sec7" class="sec">
         <div class="inner-wrap">
             <div class="desc-wrap regular-ver">
@@ -219,6 +212,9 @@
             </div>
         </div>
     </section>
+    <!-- //  7. Customer Reviews : 부모님의 생생한 프로키즈북 사용 후기 -->
+
+    <!-- 8. Contact -->
     <section id="sec8" class="sec">
         <div class="inner-wrap">
             <span class="star"></span>
@@ -227,364 +223,8 @@
             </div>
         </div>
     </section>
+    <!-- // 8. Contact -->
 </div>
 <!-- // 컨텐츠 영역 -->
-<!-- 푸터 영역 -->
-<footer></footer>
-<!-- 푸터 영역 -->
-<script>
-  /* 1. header : dropdown */
-  // 요소 선택
-  const label = document.querySelector('.label');
-  const labelImg = label.querySelector('.label-img');
-  const labelText = label.querySelector('span');
-  const optionList = document.querySelector('.option-list');
-  // 국가 코드에 따른 이미지 경로 매핑
-  const flagImages = {
-    KOR: 'resources/images/header/korea.svg',
-    ENG: 'resources/images/header/america.svg',
-    JPN: 'resources/images/header/japan.svg'
-  };
-  // 옵션 목록
-  const allOptions = ['KOR', 'ENG', 'JPN'];
-  // 옵션 렌더링 함수
-  function renderOptions(selected) {
-    optionList.innerHTML = ''; // 기존 옵션 초기화
-    // 선택된 항목 제외한 나머지 옵션 필터링
-    const filteredOptions = allOptions.filter(option => option !== selected);
-    // 필터링된 옵션을 리스트에 추가
-    filteredOptions.forEach(option => {
-      const li = document.createElement('li');
-      li.classList.add('option-item');
-      li.setAttribute('data-value', option);
-      // 이미지와 텍스트 구성
-      const img = document.createElement('img');
-      img.src = flagImages[option];
-      img.alt = `${option} flag`;
-      img.classList.add('option-img'); // 스타일을 위한 클래스 추가
-      const span = document.createElement('span');
-      span.textContent = option;
-      // 이미지와 텍스트를 li에 추가
-      li.appendChild(img);
-      li.appendChild(span);
-      // 옵션 클릭 이벤트 바인딩
-      li.addEventListener('click', () => handleSelect(option));
-      optionList.appendChild(li);
-    });
-  }
-  // 옵션 선택 핸들러
-  function handleSelect(option) {
-    console.log(`Selected: ${option}`); // 선택된 옵션 콘솔 출력
-    // 라벨의 텍스트와 이미지 업데이트
-    labelText.textContent = option;
-    label.setAttribute('data-value', option);
-    labelImg.src = flagImages[option];
-    labelImg.alt = `${option} flag`;
-    // 드롭다운 닫기
-    label.parentNode.classList.remove('active');
-    // 선택된 항목 제외하고 다시 렌더링
-    renderOptions(option);
-  }
-  // 라벨 클릭 핸들러 (드롭다운 열기/닫기)
-  label.addEventListener('click', () => {
-    const isActive = label.parentNode.classList.toggle('active');
-    console.log(`Dropdown ${isActive ? 'opened' : 'closed'}`); // 드롭다운 상태 출력
-  });
-  // 초기 옵션 렌더링 (기본값: KOR)
-  renderOptions(label.getAttribute('data-value'));
-
-  /* 2-1. sec1 : 글자 효과*/
-  window.addEventListener('load', animateElements);
-  window.addEventListener('scroll', function() {
-    if (window.scrollY === 0) {
-      animateElements();
-    } else if(window.scrollY >= 500) {
-      resetAnimation();
-    }
-  });
-
-  function animateElements() {
-    // 애니메이션 효과를 적용
-    const book = document.querySelector('.book');
-    const headings1 = document.querySelector('#sec1 .text-wrap > h2 > span:first-child');
-    const headings2 = document.querySelector('#sec1 .text-wrap > h2 > span:last-child');
-    const btnWrap = document.querySelector('.btn-wrap');
-
-    // 책 이미지 나타나기
-    book.classList.add('show');
-
-    // 첫 번째 헤딩 나타나기
-    setTimeout(() => {
-      headings1.classList.add('show');
-    }, 500); // 0.3초 후에 나타남
-
-    // 두 번째 헤딩 나타나기
-    setTimeout(() => {
-      headings2.classList.add('show');
-    }, 700); // 0.3초 후에 나타남
-
-    // 버튼 나타나기
-    setTimeout(() => {
-      btnWrap.classList.add('show');
-    }, 1000); // 0.9초 후에 나타남
-  }
-  function resetAnimation() {
-    const elements = [
-      document.querySelector('.book'),
-      document.querySelector('#sec1 .text-wrap > h2 > span:first-child'),
-      document.querySelector('#sec1 .text-wrap > h2 > span:last-child'),
-      document.querySelector('.btn-wrap')
-    ];
-
-    elements.forEach(el => el.classList.remove('show'));
-  }
-
-  /* 2-2. sec2 : 에니메이션 적용 */
-  const imageWrap = document.querySelector('#sec2 .image-wrap');
-  const firstImage = document.querySelector('#sec2 .image-wrap .first');
-  const secondImage = document.querySelector('#sec2 .image-wrap .second');
-  const firstScreen = document.querySelector('#sec2 .phone-wrap .first');
-  const secondScreen = document.querySelector('#sec2 .phone-wrap .second');
-
-  let lastScrollY = 0; // 이전 스크롤 값 저장 (스크롤 방향 확인용)
-  let screenSwitched = false; // screen 전환 여부 상태
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const animationWrap = document.querySelector('.animation-wrap');
-    const animationTop = animationWrap.getBoundingClientRect().top + window.scrollY;
-    const triggerPoint = (animationTop / 2) + 900;
-    const changePoint = triggerPoint + 300;
-
-    // 1. 스크롤이 이미지 교체 영역에 있는 경우 처리
-    if (scrollY >= triggerPoint && scrollY <= changePoint) {
-      const distance = changePoint - triggerPoint + 600;
-      const topValue = ((scrollY - triggerPoint) / distance) * 978;
-      imageWrap.style.top = `${topValue}px`;
-
-      firstImage.style.opacity = 1;
-      secondImage.style.opacity = 0;
-
-      // 스크린 전환 상태를 리셋
-      screenSwitched = false;
-      firstScreen.style.opacity = 1;
-      secondScreen.style.opacity = 0;
-    }
-
-    // 2. 스크롤이 교체 완료 지점에 도달한 경우
-    if (scrollY > changePoint && !screenSwitched) {
-      imageWrap.style.top = '978px';
-      firstImage.style.opacity = 0;
-      secondImage.style.opacity = 1;
-
-      // 스크린 전환 처리 (1.5초 지연 후 실행)
-      setTimeout(() => {
-        if (scrollY > changePoint) { // 스크롤 상태를 다시 확인하여 처리
-          firstScreen.style.opacity = 0;
-          secondScreen.style.opacity = 1;
-          screenSwitched = true; // 전환 완료 상태 업데이트
-        }
-      }, 1500);
-    }
-
-    // 3. 스크롤이 다시 올라갈 때 초기화 처리
-    if (scrollY < triggerPoint) {
-      imageWrap.style.top = '0';
-      firstImage.style.opacity = 1;
-      secondImage.style.opacity = 0;
-      firstScreen.style.opacity = 1;
-      secondScreen.style.opacity = 0;
-      screenSwitched = false; // 전환 상태 리셋
-    }
-
-    // 4. 스크롤 방향 업데이트
-    lastScrollY = scrollY;
-  });
-
-  /* sec3 : 글로벌 감각을 키우는 언어 학습 */
-  var slideImages = document.querySelectorAll('.slide-image');
-  var buttons = document.querySelectorAll('.bullet');
-  function handleMouseOver() {
-    var index = [...slideImages].indexOf(this);
-
-    slideImages.forEach((slideImage, i) => {
-      slideImage.classList.remove('active');
-      buttons[i].classList.remove('active');
-    });
-
-    this.classList.add('active');
-    buttons[index].classList.add('active');
-  }
-  function handleClick() {
-    var index = [...buttons].indexOf(this);
-
-    buttons.forEach((button, i) => {
-      button.classList.remove('active');
-      slideImages[i].classList.remove('active');
-    });
-
-    this.classList.add('active');
-    slideImages[index].classList.add('active');
-  }
-  slideImages.forEach(slideImage => {
-    slideImage.addEventListener('mouseover', handleMouseOver);
-  });
-  buttons.forEach(button => {
-    button.addEventListener('click', handleClick);
-  });
-
-  /* 다양한 그림체로 그려요: 무한롤링 */
-  window.addEventListener('load', function() {
-    setFlowBanner();
-  });
-
-  function setFlowBanner() {
-    const wrap = document.querySelector('.flow_banner');
-    const list = document.querySelector('.flow_banner .list');
-    let wrapWidth = ''; // $wrap의 가로 크기
-    let listWidth = ''; // $list의 가로 크기
-    const speed = 92; // 1초에 몇 픽셀 이동하는지 설정
-
-    // 리스트 복제
-    let clone = list.cloneNode(true);
-    wrap.appendChild(clone);
-    flowBannerAct();
-
-    // 반응형 :: 디바이스가 변경될 때마다 배너 롤링 초기화
-    let oldWChk = window.innerWidth > 1279 ? 'pc' : window.innerWidth > 767 ? 'ta' : 'mo';
-
-    window.addEventListener('resize', function() {
-      let newWChk = window.innerWidth > 1279 ? 'pc' : window.innerWidth > 767 ? 'ta' : 'mo';
-      if (newWChk !== oldWChk) {
-        oldWChk = newWChk;
-        flowBannerAct();
-      }
-    });
-
-    // 배너 실행 함수
-    function flowBannerAct() {
-      // 배너 롤링 초기화
-      if (wrapWidth !== '') {
-        const lists = wrap.querySelectorAll('.list');
-        lists.forEach((item, index) => {
-          if (index > 0) item.style.animation = 'none'; // 첫 번째 리스트는 유지
-        });
-        wrap.querySelector('.list:nth-of-type(n+3)').remove(); // 두 번째 이후의 리스트 제거
-      }
-
-      wrapWidth = wrap.offsetWidth;
-      listWidth = list.offsetWidth;
-
-      // 무한 반복을 위해 리스트를 복제 후 배너에 추가
-      if (listWidth < wrapWidth) {
-        const listCount = Math.ceil(wrapWidth * 2 / listWidth);
-        for (let i = 2; i < listCount; i++) {
-          clone = list.cloneNode(true);
-          wrap.appendChild(clone);
-        }
-      }
-
-      const listsAfterClone = wrap.querySelectorAll('.list');
-      listsAfterClone.forEach(item => {
-        item.style.animation = `${listWidth / speed}s linear infinite flowRolling`;
-      });
-    }
-
-    // 마우스가 요소 위로 진입했을 때 일시정지 (주석 처리)
-    /*
-    wrap.addEventListener('mouseenter', function() {
-      const lists = wrap.querySelectorAll('.list');
-      lists.forEach(item => {
-        item.style.animationPlayState = 'paused';
-      });
-    });
-
-    // 마우스가 요소에서 빠져나갈 때 재생 (주석 처리)
-    wrap.addEventListener('mouseleave', function() {
-      const lists = wrap.querySelectorAll('.list');
-      lists.forEach(item => {
-        item.style.animationPlayState = 'running';
-      });
-    });
-    */
-  }
-  /* sec4,sec5 */
-  const element = document.querySelector('#full-wrap');
-  const sec4 = document.querySelector('#sec4');
-  const sec5 = document.querySelector('#sec5');
-  const sec6 = document.querySelector('#sec6');
-  console.log("asd",sec6.clientHeight)
-  // element.style.marginBottom += sec6.clientHeight
-  element.style.height += `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2)}px`;
-  const elementTopOffset = element.offsetTop;
-  const elementFullHeight = element.offsetHeight;
-  const halfPageHeight = elementFullHeight / 2;
-
-  let lastScrollTop = 0; // 이전 스크롤 위치 저장
-  let ticking = false; // 스크롤 이벤트 최적화 플래그
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        handleScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
-  // 스크롤 처리 로직
-  function handleScroll() {
-    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // 1. 스크롤 방향에 따른 전환 처리
-    if (currentScrollTop > lastScrollTop) {
-      console.log("Scrolling down");
-      manageSections(currentScrollTop);
-    } else {
-      console.log("Scrolling up");
-      manageSections(currentScrollTop);
-    }
-
-    // 2. sticky 처리 (해당 범위에서만 고정)
-    if (
-      currentScrollTop >= elementTopOffset &&
-      currentScrollTop < elementTopOffset + halfPageHeight * 2
-    ) {
-      element.style.position = "sticky";
-      element.style.top = "0";
-    } else {
-      element.style.position = "relative";
-    }
-
-    // 스크롤 위치 업데이트
-    lastScrollTop = Math.max(0, currentScrollTop);
-  }
-
-  // sec4와 sec5 전환 관리
-  function manageSections(scrollTop) {
-    if (scrollTop < elementTopOffset + halfPageHeight) {
-      // sec4 활성화
-      activateSection(sec4, sec5);
-    } else if (scrollTop < elementTopOffset + halfPageHeight * 2) {
-      // sec5 활성화
-      activateSection(sec5, sec4);
-    }
-  }
-
-  // 활성화된 섹션을 관리하는 함수
-  function activateSection(active, inactive) {
-    if (!active.classList.contains("active")) {
-      console.log(`${active.id} 활성화`);
-      inactive.classList.remove("active");
-      active.classList.add("active");
-    }
-  }
-
-  var swiper = new Swiper(".mySwiper", {
-    direction: "vertical"
-  })
-
-</script>
 </body>
 </html>
