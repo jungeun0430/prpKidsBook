@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const headerHtml = `
     <header>
         <div class="inner-wrap">
-            <h1><a href="/prpKidsBook/index.html"><img src="/resources/images/header/proKids_logo.svg" alt="ProKids"></a></h1>
+            <h1><a href="/index.html"><img src="/resources/images/header/proKids_logo.svg" alt="ProKids"></a></h1>
             <nav>
                 <ul>
                     <li><a href="#">About</a></li>
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     <li>
                         <div class="select-box dropdown1 ">
                             <button class="label" data-value="KOR">
-                                <img src="/resources/images/header/korea.svg" alt="한국" class="label-img" />
+                                <img src="/resources/images/header/korea_4.png" alt="한국" class="label-img" />
                                 <span>KOR</span>
                             </button>
                             <ul class="option-list"></ul>
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function(){
           <div class="footer-info-wrap">
               <div>
                   <ul class="policy-wrap">
-                      <li><a href="/prpKidsBook/pages/policy/terms-of-policy.html">이용약관</a></li>
-                      <li><a href="/prpKidsBook/pages/policy/privacy-policy.html">개인정보 처리방침</a></li>
+                      <li><a href="/pages/policy/terms-of-policy.html">이용약관</a></li>
+                      <li><a href="/pages/policy/privacy-policy.html">개인정보 처리방침</a></li>
                   </ul>
                   <ul class="place-info">
                       <li>주소 : 서울특별시 송파구 법원로8길 8 SKV1 910호 (05855)</li>
@@ -97,9 +97,10 @@ document.addEventListener("DOMContentLoaded", function(){
     };
   }
   /* 실행문 */
-    window.addEventListener("resize", throttle(function onResize() {
+    /*window.addEventListener("resize", throttle(function onResize() {
       setElementReferencesAndSizes();
-    }, 300));
+      handleScroll();
+    }, 300));*/
 
   /* [공통] ########################  */
   /* 1. Dropdown : header, footer
@@ -175,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function(){
     function renderOptionWithImage(li, option) {
       const img = document.createElement('img');
       const flagImages = {
-        KOR: 'resources/images/header/korea.svg',
-        ENG: 'resources/images/header/america.svg',
-        JPN: 'resources/images/header/japan.svg'
+        KOR: 'resources/images/header/korea_4.png',
+        ENG: 'resources/images/header/america_4.png',
+        JPN: 'resources/images/header/japan_4.png'
       };
       img.src = flagImages[option];
       img.alt = `${option} flag`;
@@ -308,6 +309,10 @@ document.addEventListener("DOMContentLoaded", function(){
             secondScreen.style.opacity = 1;
             screenSwitched = true; // 전환 완료 상태 업데이트
           }
+          // 또 다른 timeout을 설정해 secondScreen의 opacity를 0으로 변경
+          setTimeout(() => {
+            secondImage.style.opacity = 0;
+          }, 0); // 원하는 대기 시간을 설정할 수 있습니다.
         }, 1500);
       }
 
@@ -330,6 +335,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var buttons = document.querySelectorAll('.bullet');
     function handleMouseOver() {
       var index = [...slideImages].indexOf(this);
+
 
       slideImages.forEach((slideImage, i) => {
         slideImage.classList.remove('active');
@@ -358,15 +364,6 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
   /* sec4,sec5 : 풀페이지 효과 */
-    /*const element = document.querySelector('#full-wrap');
-    const sec4 = document.querySelector('#sec4');
-    const sec5 = document.querySelector('#sec5');
-    const sec6 = document.querySelector('#sec6');
-    element.style.height += `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2.08)}px`;
-  // element.style.height = `${sec4.clientHeight * 4}px`;
-    const elementTopOffset = element.offsetTop;
-    const elementFullHeight = element.offsetHeight;
-    const halfPageHeight = elementFullHeight / 2;*/
   // 필요한 요소들의 참조와 높이를 초기 설정합니다.
     let element, sec4, sec5, sec6;
     let elementTopOffset, elementFullHeight, halfPageHeight;
@@ -392,15 +389,10 @@ document.addEventListener("DOMContentLoaded", function(){
       sec4 = document.querySelector('#sec4');
       sec5 = document.querySelector('#sec5');
       sec6 = document.querySelector('#sec6');
-      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2.08)}px`;
+      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2.2)}px`;
       elementTopOffset = element.offsetTop;
       elementFullHeight = element.offsetHeight;
       halfPageHeight = elementFullHeight / 2;
-
-      console.log('리사이즈 체크중#############')
-      console.log(elementTopOffset)
-      console.log(elementFullHeight)
-
     }
 
   // 스크롤 처리 로직
@@ -456,7 +448,12 @@ document.addEventListener("DOMContentLoaded", function(){
       const list = document.querySelector('.flow_banner .list');
       let wrapWidth = ''; // $wrap의 가로 크기
       let listWidth = ''; // $list의 가로 크기
-      const speed = 92; // 1초에 몇 픽셀 이동하는지 설정
+      let speed = 92; // 1초에 몇 픽셀 이동하는지 설정
+
+      if(window.innerWidth < 1400) {
+        console.log('으ㅏ으ㅏ으ㅏ으ㅏ으')
+        speed = 40
+      }
 
       // 리스트 복제
       let clone = list.cloneNode(true);
