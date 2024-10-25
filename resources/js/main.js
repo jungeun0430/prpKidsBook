@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function(){
           <div class="footer-info-wrap">
               <div>
                   <ul class="policy-wrap">
-                      <li><a href="/prpKidsBook/pages/policy/privacy-policy.html">이용약관</a></li>
-                      <li><a href="/prpKidsBook/pages/policy/terms-of-policy.html">개인정보 처리방침</a></li>
+                      <li><a href="/prpKidsBook/pages/policy/terms-of-policy.html">이용약관</a></li>
+                      <li><a href="/prpKidsBook/pages/policy/privacy-policy.html">개인정보 처리방침</a></li>
                   </ul>
                   <ul class="place-info">
                       <li>주소 : 서울특별시 송파구 법원로8길 8 SKV1 910호 (05855)</li>
