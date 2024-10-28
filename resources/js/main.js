@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", function(){
       sec4 = document.querySelector('#sec4');
       sec5 = document.querySelector('#sec5');
       sec6 = document.querySelector('#sec6');
-      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2.2)}px`;
+      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2.08)}px`;
       elementTopOffset = element.offsetTop;
       elementFullHeight = element.offsetHeight;
       halfPageHeight = elementFullHeight / 2;
