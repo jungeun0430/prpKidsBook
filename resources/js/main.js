@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
             <h1><a href="/index.html"><img src="/resources/images/header/proKids_logo.svg" alt="ProKids"></a></h1>
             <nav>
                 <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><button id="about" href="#">About</button></li>
+                    <li><button id="contact" href="#">Contact us</button></li>
                     <li>
                         <div class="select-box dropdown1 ">
                             <button class="label" data-value="KOR">
@@ -82,26 +82,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 
-  /* [반응형] */
-  /* 관련 함수 */
-  function throttle(func, wait) {
-    var timeout = null;
-    return function() {
-      var context = this, args = arguments;
-      if (!timeout) {
-        timeout = setTimeout(function() {
-          timeout = null;
-          func.apply(context, args);
-        }, wait);
-      }
-    };
-  }
-  /* 실행문 */
-    /*window.addEventListener("resize", throttle(function onResize() {
-      setElementReferencesAndSizes();
-      handleScroll();
-    }, 300));*/
-
   /* [공통] ########################  */
   /* 1. Dropdown : header, footer
   * 특정 드롭다운을 초기화하는 함수
@@ -113,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function(){
       const label = dropdownEl.querySelector('.label');
       const labelText = label.querySelector('span');
       const optionList = dropdownEl.querySelector('.option-list');
+      console.log(dropdownEl,options,renderOption)
 
       // 옵션 렌더링 함수
       function renderOptions(selected) {
@@ -158,6 +139,22 @@ document.addEventListener("DOMContentLoaded", function(){
           // 드롭다운 닫기 및 옵션 재렌더링
           dropdownEl.classList.remove('active');
           renderOptions(option); // 선택된 항목 제외한 옵션 렌더링
+
+          // 번역
+          fetch(`resources/translation-data/${option}.json`)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(data => {
+              updateLanguage(data); // 언어 데이터 업데이트 호출
+            })
+            .catch(error => {
+              console.error('Error fetching translation data:', error);
+            });
+
         }
       }
 
@@ -201,6 +198,48 @@ document.addEventListener("DOMContentLoaded", function(){
         dropdownEl.classList.remove('active'); // 드롭다운 닫기
       });
       li.appendChild(a);
+    }
+  // 언어 번역
+
+    function updateLanguage (language) {
+      /* sec1 번역 */
+      document.querySelector('[data-translate="sec1_text1"]').innerText = language.sec1_text1;
+      document.querySelector('[data-translate="sec1_text2"]').innerText = language.sec1_text2;
+      document.querySelector('[data-translate="sec1_apple"]').src = language.sec1_apple.src;
+      document.querySelector('[data-translate="sec1_apple"]').alt = language.sec1_apple.alt;
+      document.querySelector('[data-translate="sec1_google"]').src = language.sec1_google.src;
+      document.querySelector('[data-translate="sec1_google"]').alt = language.sec1_google.alt;
+      /* sec2 번역 */
+      document.querySelector('[data-translate="sec2_title"]').innerText = language.sec2_title;
+      document.querySelector('[data-translate="sec2_desc"]').innerHTML = language.sec2_desc;
+      document.querySelector('[data-translate="sec2_dress_alt"]').alt = language.sec2_dress_alt;
+      document.querySelector('[data-translate="sec2_cloud1_alt"]').alt = language.sec2_cloud1_alt;
+      document.querySelector('[data-translate="sec2_cloud2_alt"]').alt = language.sec2_cloud2_alt;
+      /* sec3 번역 */
+      document.querySelector('[data-translate="sec3_title1"]').innerText = language.sec3_title1;
+      document.querySelector('[data-translate="sec3_desc1"]').innerHTML = language.sec3_desc1;
+      document.querySelector('[data-translate="sec3_title2"]').innerText = language.sec3_title2;
+      document.querySelector('[data-translate="sec3_desc2"]').innerHTML = language.sec3_desc2;
+      document.querySelector('[data-translate="sec3_title3"]').innerHTML = language.sec3_title3;
+      document.querySelector('[data-translate="sec3_desc3"]').innerHTML = language.sec3_desc3;
+      /* sec4, sec5 번역 */
+      document.querySelector('[data-translate="sec4_title"]').innerText = language.sec4_title;
+      document.querySelector('[data-translate="sec4_desc"]').innerHTML = language.sec4_desc;
+      document.querySelector('[data-translate="sec5_title"]').innerHTML = language.sec5_title;
+      document.querySelector('[data-translate="sec5_desc"]').innerHTML = language.sec5_desc;
+      /* sec6 */
+      document.querySelector('[data-translate="sec6_title"]').innerText = language.sec6_title;
+      document.querySelector('[data-translate="sec6_desc"]').innerHTML = language.sec6_desc;
+      /* sec7 */
+      document.querySelector('[data-translate="sec7_title"]').innerText = language.sec7_title;
+      document.querySelector('[data-translate="sec7_desc"]').innerHTML = language.sec7_desc;
+      document.querySelector('[data-translate="sec7_img1"]').src = language.sec7_img1;
+      document.querySelector('[data-translate="sec7_img2"]').src = language.sec7_img2;
+      document.querySelector('[data-translate="sec7_img3"]').src = language.sec7_img3;
+      document.querySelector('[data-translate="sec7_img4"]').src = language.sec7_img4;
+      /* sec8 */
+      document.querySelector('[data-translate="sec8_star"]').src = language.resources/images/contents/ico_contact.svg;
+      document.querySelector('[data-translate="sec8_btn"]').innerText = language.sec8_btn;
     }
   // 1-3. 각 드롭다운에 맞게 초기화
     // 실행문 : header dropdown
@@ -278,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function(){
       const animationTop = animationWrap.getBoundingClientRect().top + window.scrollY;
       const cardHeight = document.querySelector('.animation-wrap .image-wrap').offsetHeight
       const triggerPoint = animationTop
-      const changePoint = triggerPoint + 350;
+      const changePoint = triggerPoint + 50;
 
       // 1. 스크롤이 이미지 교체 영역에 있는 경우 처리
       if (scrollY >= triggerPoint && scrollY <= changePoint) {
@@ -292,7 +331,9 @@ document.addEventListener("DOMContentLoaded", function(){
         // 스크린 전환 상태를 리셋
         screenSwitched = false;
         firstScreen.style.opacity = 1;
+        // 두 번째 이미지로 전환되면 on 클래스 추가
         secondScreen.style.opacity = 0;
+        document.querySelector('#sec2 .animation-wrap').classList.add('on')
       }
 
       // 2. 스크롤이 교체 완료 지점에 도달한 경우
@@ -323,6 +364,7 @@ document.addEventListener("DOMContentLoaded", function(){
         secondImage.style.opacity = 0;
         firstScreen.style.opacity = 1;
         secondScreen.style.opacity = 0;
+        document.querySelector('#sec2 .animation-wrap').classList.remove('on')
         screenSwitched = false; // 전환 상태 리셋
       }
 
@@ -333,17 +375,21 @@ document.addEventListener("DOMContentLoaded", function(){
   /* sec3 : 요소가 펼처지는 애니메이션 적용 */
     var slideImages = document.querySelectorAll('.slide-image');
     var buttons = document.querySelectorAll('.bullet');
-    function handleMouseOver() {
+    var descWraps = document.querySelectorAll('#sec3 .desc-wrap');  // 각 설명 요소
+
+  function handleMouseOver() {
       var index = [...slideImages].indexOf(this);
 
 
       slideImages.forEach((slideImage, i) => {
         slideImage.classList.remove('active');
         buttons[i].classList.remove('active');
+        descWraps[i].classList.remove('active');
       });
 
       this.classList.add('active');
       buttons[index].classList.add('active');
+      descWraps[index].classList.add('active');  // 해당 순번의 설명 활성화
     }
     function handleClick() {
       var index = [...buttons].indexOf(this);
@@ -351,10 +397,12 @@ document.addEventListener("DOMContentLoaded", function(){
       buttons.forEach((button, i) => {
         button.classList.remove('active');
         slideImages[i].classList.remove('active');
+        descWraps[i].classList.remove('active');  // 해당 순번의 설명도 비활성화
       });
 
       this.classList.add('active');
       slideImages[index].classList.add('active');
+      descWraps[index].classList.add('active');  // 해당 순번의 설명 활성화
     }
     slideImages.forEach(slideImage => {
       slideImage.addEventListener('mouseover', handleMouseOver);
@@ -389,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function(){
       sec4 = document.querySelector('#sec4');
       sec5 = document.querySelector('#sec5');
       sec6 = document.querySelector('#sec6');
-      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight * 2.08)}px`;
+      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight)}px`;
       elementTopOffset = element.offsetTop;
       elementFullHeight = element.offsetHeight;
       halfPageHeight = elementFullHeight / 2;
@@ -422,11 +470,16 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   // sec4와 sec5 전환 관리
     function manageSections(scrollTop) {
-      if (scrollTop < elementTopOffset + halfPageHeight) {
+      var activeHeight = halfPageHeight / 2; // 변경
+      if (scrollTop < elementTopOffset + activeHeight) { // 변경
         // sec4 활성화
+        document.getElementById('sec4').classList.add('on');
+        document.getElementById('sec5').classList.remove('on');
         activateSection(sec4, sec5);
-      } else if (scrollTop < elementTopOffset + halfPageHeight * 2) {
+      } else if (scrollTop < elementTopOffset + activeHeight * 2) { // 변경
         // sec5 활성화
+        document.getElementById('sec5').classList.add('on');
+        document.getElementById('sec4').classList.remove('on');
         activateSection(sec5, sec4);
       }
     }
@@ -442,7 +495,6 @@ document.addEventListener("DOMContentLoaded", function(){
     window.addEventListener('load', function() {
       setFlowBanner();
     });
-
     function setFlowBanner() {
       const wrap = document.querySelector('.flow_banner');
       const list = document.querySelector('.flow_banner .list');
@@ -451,7 +503,6 @@ document.addEventListener("DOMContentLoaded", function(){
       let speed = 92; // 1초에 몇 픽셀 이동하는지 설정
 
       if(window.innerWidth < 1400) {
-        console.log('으ㅏ으ㅏ으ㅏ으ㅏ으')
         speed = 40
       }
 
@@ -494,24 +545,86 @@ document.addEventListener("DOMContentLoaded", function(){
           item.style.animation = `${listWidth / speed}s linear infinite flowRolling`;
         });
       }
-
-      // 마우스가 요소 위로 진입했을 때 일시정지 (주석 처리)
-      /*
-      wrap.addEventListener('mouseenter', function() {
-        const lists = wrap.querySelectorAll('.list');
-        lists.forEach(item => {
-          item.style.animationPlayState = 'paused';
-        });
-      });
-
-      // 마우스가 요소에서 빠져나갈 때 재생 (주석 처리)
-      wrap.addEventListener('mouseleave', function() {
-        const lists = wrap.querySelectorAll('.list');
-        lists.forEach(item => {
-          item.style.animationPlayState = 'running';
-        });
-      });
-      */
     }
+
+  /* [공통] */
+  /* 스파이 스크롤 & 이벤트(텍스트) */
+    scrollSlide()
+  /* 스파이스 스크롤 */
+    function showPage(n) {
+      var section = document.querySelectorAll('.sec')[n - 1];
+      var scrollAmt = section ? section.offsetTop : 0;
+
+      window.scrollTo({
+        top: scrollAmt,
+        behavior: 'smooth'
+      });
+    }
+    function checkPageNow() {
+      var scrollAmt = document.documentElement.scrollTop || document.body.scrollTop;
+      var n = 0;
+      document.querySelectorAll('.sec').forEach(function (section, i) {
+        var min = section.offsetTop - (window.innerHeight / 2);
+        var max = section.offsetTop + section.offsetHeight - (window.innerHeight / 2);
+
+        if (scrollAmt > min && scrollAmt <= max) {
+          n = i + 1;
+          return false;
+        }
+      });
+      document.querySelectorAll('.sec').forEach(function (section) {
+        section.classList.remove('on');
+      });
+      if (n > 0) {
+        document.querySelector('.sec:nth-child(' + n + ')').classList.add('on');
+      }
+      if (n > 0 && n < 4) {
+        document.getElementById('sec4').classList.remove('on');
+        document.getElementById('sec5').classList.remove('on');
+      }
+
+      if (n === 5) {
+        gsap.utils.toArray('path').forEach(path => { // 문서 내의 모든 path 요소를 배열로 가져옴
+          const length = path.getTotalLength(); // 각 path의 총 길이를 계산하여 애니메이션의 기준이 되는 길이를 반환
+          path.style.strokeDasharray = length; // path 요소의 strokeDasharray 속성을 경로의 총 길이와 동일하게 설정하여 전체 경로가 동일한 길이의 대시로 구성된 것처럼 보이게 함
+          path.style.strokeDashoffset = length; // strokeDashoffset을 경로의 길이로 설정하여 애니메이션 시작 시 숨겨진 상태로 설정
+
+          // gsap.to로 애니메이션을 설정
+          gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 7, // 애니메이션 지속 시간
+            ease: 'expo.out',  // 이징 함수를 'expo.out'로 변경
+          });
+        });
+      } else {
+        // 'path'에 대한 모든 애니메이션을 중지
+        gsap.utils.toArray('path').forEach(path => {
+          gsap.killTweensOf(path); // 각 path 요소에 대해 애니메이션을 중지
+        });
+      }
+
+     /* if (pageNow === 1) {
+      } else {
+        return false;
+      }
+      pageNow = n;
+      pagePrev = (n <= 1) ? 1 : (n - 1);
+      pageNext = (n >= numPage) ? numPage : (n + 1);
+      console.log(pagePrev + '/' + pageNow + '/' + pageNext);*/
+    }
+    function scrollSlide() {
+      window.addEventListener('scroll', checkPageNow);
+      window.addEventListener('resize', checkPageNow);
+  }
+
+  /* 헤더 상단 바로가기(스크롤) */
+    document.getElementById('about').addEventListener('click', function() {
+      showPage(1);
+    });
+    document.getElementById('contact').addEventListener('click', function() {
+      showPage(7);
+    });
 });
+
+
 
