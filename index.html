@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" sizes="16x16" href="resources/images/prokids_icon.png">
     <!-- css -->
     <link rel="stylesheet" href="resources/css/style.css">
 
@@ -197,9 +197,9 @@
                 <span>Only Prokidsbook</span>
                 <h3 data-translate="sec6_title">다양한 그림체로 즐겨요</h3>
                 <p data-translate="sec6_desc">
-                    동화를 다 읽은 후 퀴즈로 독서를 마무리해요!<br/>
-                    각 이야기를 기반으로 구성된 퀴즈는 아이들이 이야기를<br/>
-                    기억하고 이해하는 데 도움을 주며 사고력을 자극합니다.
+                    수많은 테스트 끝에 탄생한 프로키즈북의 그림체는 아이들이<br/>
+                    수준 높은 그림의 동화 작가가 되도록 도와줍니다. 이러한 시각적<br/>
+                    경험은 감각을 자극하고, 독서에 대한 흥미를 증진시킵니다.
                 </p>
             </div>
             <div class="big-wrapper">
@@ -272,16 +272,368 @@
 </body>
 </html>
 <script>
-/*gsap.utils.toArray('path').forEach(path => { //문서 내의 모든 path 요소를 배열로 가져옴
-    const length = path.getTotalLength(); //각 path의 총 길이를 계산하여 애니메이션의 기준이 되는 길이를 반환
-    path.style.strokeDasharray = length; //path 요소의 strokeDasharray 속성을 경로의 총 길이와 동일하게 설정하여 전체 경로가 동일한 길이의 대시로 구성된 것처럼 보이게 함
-    path.style.strokeDashoffset = length;
-
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      duration: 3.5, // 속도 조절
-      ease: 'power2.inOut',
-      repeat: -1,
+  document.addEventListener("DOMContentLoaded", function(){
+    /* 컨텐츠 내 독립적인 스크립트 */
+    /* sec1 + header : 글자 효과 + 스크롤시 헤더 안의 색상 변경 */
+    window.addEventListener('load', animateElements);
+    window.addEventListener('scroll', function() {
+      if (window.scrollY === 0) {
+        animateElements();
+      } else if(window.scrollY >= 500) {
+        resetAnimation();
+      }
     });
-});*/
+
+    function animateElements() {
+      // 애니메이션 효과를 적용
+      const book = document.querySelector('.book');
+      const headings1 = document.querySelector('#sec1 .text-wrap > h2 > span:first-child');
+      const headings2 = document.querySelector('#sec1 .text-wrap > h2 > span:last-child');
+      const btnWrap = document.querySelector('.btn-wrap');
+
+      // 책 이미지 나타나기
+      book.classList.add('show');
+
+      // 첫 번째 헤딩 나타나기
+      setTimeout(() => {
+        headings1.classList.add('show');
+      }, 500); // 0.3초 후에 나타남
+
+      // 두 번째 헤딩 나타나기
+      setTimeout(() => {
+        headings2.classList.add('show');
+      }, 700); // 0.3초 후에 나타남
+
+      // 버튼 나타나기
+      setTimeout(() => {
+        btnWrap.classList.add('show');
+      }, 1000); // 0.9초 후에 나타남
+    }
+    function resetAnimation() {
+      const elements = [
+        document.querySelector('.book'),
+        document.querySelector('#sec1 .text-wrap > h2 > span:first-child'),
+        document.querySelector('#sec1 .text-wrap > h2 > span:last-child'),
+        document.querySelector('.btn-wrap')
+      ];
+
+      elements.forEach(el => el.classList.remove('show'));
+    }
+
+    /* sec2 : 요소가 떨어지는 에니메이션 적용 */
+    const imageWrap = document.querySelector('#sec2 .image-wrap');
+    const firstImage = document.querySelector('#sec2 .image-wrap .first');
+    const secondImage = document.querySelector('#sec2 .image-wrap .second');
+    const firstScreen = document.querySelector('#sec2 .phone-wrap .first');
+    const secondScreen = document.querySelector('#sec2 .phone-wrap .second');
+
+    let lastScrollY = 0; // 이전 스크롤 값 저장 (스크롤 방향 확인용)
+    let screenSwitched = false; // screen 전환 여부 상태
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const animationWrap = document.querySelector('.animation-wrap');
+      const animationTop = animationWrap.getBoundingClientRect().top + window.scrollY;
+      const cardHeight = document.querySelector('.animation-wrap .image-wrap').offsetHeight
+      const triggerPoint = animationTop
+      const changePoint = triggerPoint + 10;
+      console.log(scrollY)
+      console.log('triggerPoint',triggerPoint)
+      console.log('changePoint',changePoint)
+      // 1. 스크롤이 이미지 교체 영역에 있는 경우 처리
+      if (scrollY >= triggerPoint && scrollY <= changePoint) {
+        const distance = changePoint - triggerPoint + 600;
+        const topValue = ((scrollY - triggerPoint) / distance) * 978;
+        imageWrap.style.top = `${topValue}px`;
+
+        firstImage.style.opacity = 1;
+        secondImage.style.opacity = 0;
+
+        // 스크린 전환 상태를 리셋
+        screenSwitched = false;
+        firstScreen.style.opacity = 1;
+        // 두 번째 이미지로 전환되면 on 클래스 추가
+        secondScreen.style.opacity = 0;
+      }
+
+      // 2. 스크롤이 교체 완료 지점에 도달한 경우
+      if (scrollY > changePoint && !screenSwitched) {
+        const moveTop = animationWrap.offsetHeight - cardHeight -20  + 'px'
+        imageWrap.style.top = moveTop;
+        firstImage.style.opacity = 0;
+        secondImage.style.opacity = 1;
+        // 스크린 전환 처리 (1.5초 지연 후 실행)
+        setTimeout(() => {
+          if (scrollY > changePoint) { // 스크롤 상태를 다시 확인하여 처리
+            firstScreen.style.opacity = 0;
+            secondScreen.style.opacity = 1;
+            screenSwitched = true; // 전환 완료 상태 업데이트
+          }
+          // 또 다른 timeout을 설정해 secondScreen의 opacity를 0으로 변경
+          setTimeout(() => {
+            secondImage.style.opacity = 0;
+          }, 0); // 원하는 대기 시간을 설정할 수 있습니다.
+        }, 1500);
+      }
+
+      // 3. 스크롤이 다시 올라갈 때 초기화 처리
+      if (scrollY < triggerPoint) {
+        imageWrap.style.top = '0';
+        firstImage.style.opacity = 1;
+        secondImage.style.opacity = 0;
+        firstScreen.style.opacity = 1;
+        secondScreen.style.opacity = 0;
+        document.querySelector('#sec2 .animation-wrap').classList.remove('on')
+        screenSwitched = false; // 전환 상태 리셋
+      }
+
+      // 4. 스크롤 방향 업데이트
+      lastScrollY = scrollY;
+    });
+
+    /* sec3 : 요소가 펼처지는 애니메이션 적용 */
+    var slideImages = document.querySelectorAll('.slide-image');
+    var buttons = document.querySelectorAll('.bullet');
+    var descWraps = document.querySelectorAll('#sec3 .desc-wrap');  // 각 설명 요소
+
+    function handleMouseOver() {
+      var index = [...slideImages].indexOf(this);
+
+
+      slideImages.forEach((slideImage, i) => {
+        slideImage.classList.remove('active');
+        buttons[i].classList.remove('active');
+        descWraps[i].classList.remove('active');
+      });
+
+      this.classList.add('active');
+      buttons[index].classList.add('active');
+      descWraps[index].classList.add('active');  // 해당 순번의 설명 활성화
+    }
+    function handleClick() {
+      var index = [...buttons].indexOf(this);
+
+      buttons.forEach((button, i) => {
+        button.classList.remove('active');
+        slideImages[i].classList.remove('active');
+        descWraps[i].classList.remove('active');  // 해당 순번의 설명도 비활성화
+      });
+
+      this.classList.add('active');
+      slideImages[index].classList.add('active');
+      descWraps[index].classList.add('active');  // 해당 순번의 설명 활성화
+    }
+    slideImages.forEach(slideImage => {
+      slideImage.addEventListener('mouseover', handleMouseOver);
+    });
+    buttons.forEach(button => {
+      button.addEventListener('click', handleClick);
+    });
+
+    /* sec4,sec5 : 풀페이지 효과 */
+    // 필요한 요소들의 참조와 높이를 초기 설정합니다.
+    let element, sec4, sec5, sec6;
+    let elementTopOffset, elementFullHeight, halfPageHeight;
+    setElementReferencesAndSizes();
+
+    // 스크롤 이벤트 최적화를 위한 변수를 설정합니다.
+    let lastScrollTop = 0;
+    let ticking = false;
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // 요소들의 참조를 설정하고 높이를 계산하는 함수입니다.
+    function setElementReferencesAndSizes() {
+      element = document.querySelector('#full-wrap');
+      sec4 = document.querySelector('#sec4');
+      sec5 = document.querySelector('#sec5');
+      sec6 = document.querySelector('#sec6');
+      element.style.height = `${sec4.clientHeight + sec5.clientHeight + (sec6.clientHeight)}px`;
+      elementTopOffset = element.offsetTop;
+      elementFullHeight = element.offsetHeight;
+      halfPageHeight = elementFullHeight / 2;
+    }
+
+    // 스크롤 처리 로직
+    function handleScroll() {
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // 1. 스크롤 방향에 따른 전환 처리
+      if (currentScrollTop > lastScrollTop) {
+        manageSections(currentScrollTop);
+      } else {
+        manageSections(currentScrollTop);
+      }
+
+      // 2. sticky 처리 (해당 범위에서만 고정)
+      if (
+        currentScrollTop >= elementTopOffset &&
+        currentScrollTop < elementTopOffset + halfPageHeight * 2
+      ) {
+        element.style.position = "sticky";
+        element.style.top = "0";
+      } else {
+        element.style.position = "relative";
+      }
+
+      // 스크롤 위치 업데이트
+      lastScrollTop = Math.max(0, currentScrollTop);
+    }
+    // sec4와 sec5 전환 관리
+    function manageSections(scrollTop) {
+      var activeHeight = halfPageHeight / 2; // 변경
+      if (scrollTop < elementTopOffset + activeHeight) { // 변경
+        // sec4 활성화
+        document.getElementById('sec4').classList.add('on');
+        document.getElementById('sec5').classList.remove('on');
+        activateSection(sec4, sec5);
+      } else if (scrollTop < elementTopOffset + activeHeight * 2) { // 변경
+        // sec5 활성화
+        document.getElementById('sec5').classList.add('on');
+        document.getElementById('sec4').classList.remove('on');
+        activateSection(sec5, sec4);
+      }
+    }
+    // 활성화된 섹션을 관리하는 함수
+    function activateSection(active, inactive) {
+      if (!active.classList.contains("active")) {
+        inactive.classList.remove("active");
+        active.classList.add("active");
+      }
+    }
+
+    /* sec6 : 요소 무한롤링 */
+    window.addEventListener('load', function() {
+      setFlowBanner();
+    });
+    function setFlowBanner() {
+      const wrap = document.querySelector('.flow_banner');
+      const list = document.querySelector('.flow_banner .list');
+      let wrapWidth = ''; // $wrap의 가로 크기
+      let listWidth = ''; // $list의 가로 크기
+      let speed = 92; // 1초에 몇 픽셀 이동하는지 설정
+
+      if(window.innerWidth < 1400) {
+        speed = 40
+      }
+
+      // 리스트 복제
+      let clone = list.cloneNode(true);
+      wrap.appendChild(clone);
+      flowBannerAct();
+
+      // 반응형 :: 디바이스가 변경될 때마다 배너 롤링 초기화
+
+      // 배너 실행 함수
+      function flowBannerAct() {
+        // 배너 롤링 초기화
+        if (wrapWidth !== '') {
+          const lists = wrap.querySelectorAll('.list');
+          lists.forEach((item, index) => {
+            if (index > 0) item.style.animation = 'none'; // 첫 번째 리스트는 유지
+          });
+          // n+3번째 이후의 리스트 제거 (있을 때만)
+          const extraList = wrap.querySelector('.list:nth-of-type(n+3)');
+          if (extraList) {
+            extraList.remove();
+          }
+        }
+
+        wrapWidth = wrap.offsetWidth;
+        listWidth = list.offsetWidth;
+
+        // 무한 반복을 위해 리스트를 복제 후 배너에 추가
+        if (listWidth < wrapWidth) {
+          const listCount = Math.ceil(wrapWidth * 2 / listWidth);
+          for (let i = 2; i < listCount; i++) {
+            clone = list.cloneNode(true);
+            wrap.appendChild(clone);
+          }
+        }
+
+        const listsAfterClone = wrap.querySelectorAll('.list');
+        listsAfterClone.forEach(item => {
+          item.style.animation = `${listWidth / speed}s linear infinite flowRolling`;
+        });
+      }
+    }
+
+    /* [공통] */
+    /* 스파이 스크롤 & 이벤트(텍스트) */
+    scrollSlide()
+    /* 스파이스 스크롤 */
+    function showPage(n) {
+      var section = document.querySelectorAll('.sec')[n - 1];
+      var scrollAmt = section ? section.offsetTop : 0;
+
+      window.scrollTo({
+        top: scrollAmt,
+        behavior: 'smooth'
+      });
+    }
+    function checkPageNow() {
+      var scrollAmt = document.documentElement.scrollTop || document.body.scrollTop;
+      var n = 0;
+      document.querySelectorAll('.sec').forEach(function (section, i) {
+        var min = section.offsetTop - (window.innerHeight / 2);
+        var max = section.offsetTop + section.offsetHeight - (window.innerHeight / 2);
+
+        if (scrollAmt > min && scrollAmt <= max) {
+          n = i + 1;
+          return false;
+        }
+      });
+      document.querySelectorAll('.sec').forEach(function (section) {
+        section.classList.remove('on');
+      });
+      if (n > 0) {
+        document.querySelector('.sec:nth-child(' + n + ')').classList.add('on');
+      }
+      if (n > 0 && n < 4) {
+        document.getElementById('sec4').classList.remove('on');
+        document.getElementById('sec5').classList.remove('on');
+      }
+
+      if (n === 5) {
+        gsap.utils.toArray('path').forEach(path => { // 문서 내의 모든 path 요소를 배열로 가져옴
+          const length = path.getTotalLength(); // 각 path의 총 길이를 계산하여 애니메이션의 기준이 되는 길이를 반환
+          path.style.strokeDasharray = length; // path 요소의 strokeDasharray 속성을 경로의 총 길이와 동일하게 설정하여 전체 경로가 동일한 길이의 대시로 구성된 것처럼 보이게 함
+          path.style.strokeDashoffset = length; // strokeDashoffset을 경로의 길이로 설정하여 애니메이션 시작 시 숨겨진 상태로 설정
+
+          // gsap.to로 애니메이션을 설정
+          gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 7, // 애니메이션 지속 시간
+            ease: 'expo.out',  // 이징 함수를 'expo.out'로 변경
+          });
+        });
+      } else {
+        // 'path'에 대한 모든 애니메이션을 중지
+        gsap.utils.toArray('path').forEach(path => {
+          gsap.killTweensOf(path); // 각 path 요소에 대해 애니메이션을 중지
+        });
+      }
+
+      /* if (pageNow === 1) {
+       } else {
+         return false;
+       }
+       pageNow = n;
+       pagePrev = (n <= 1) ? 1 : (n - 1);
+       pageNext = (n >= numPage) ? numPage : (n + 1);
+       console.log(pagePrev + '/' + pageNow + '/' + pageNext);*/
+    }
+    function scrollSlide() {
+      window.addEventListener('scroll', checkPageNow);
+      window.addEventListener('resize', checkPageNow);
+    }
+  });
 </script>
