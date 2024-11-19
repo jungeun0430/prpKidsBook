@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
   /* [공통 상단] */
   const originalPath = window.location.pathname;
+  let pathss = location.href;
+  console.log(pathss)
   const path = originalPath.replace('.html', '')
     const selectedLanguageOption = localStorage.getItem('selectedOption') || 'KOR';
     const flagImages = {
@@ -83,6 +85,37 @@ document.addEventListener("DOMContentLoaded", function(){
   /* 초기 설정(KOR) : localstorage에 저장된 값이 없을 시 */
     rendererHeader(selectedLanguageOption)
     translateText(selectedLanguageOption, '/index')
+
+  const navItems = document.querySelectorAll('nav ul li a');
+  const logoLink = document.querySelector('h1 a');
+
+  // 로컬 스토리지에 activeNavPath가 없으면 기본값으로 설정
+  let activePath = localStorage.getItem('activeNavPath');
+  if (!activePath) {
+    activePath = '/index.html';
+    localStorage.setItem('activeNavPath', activePath);
+  }
+
+  // 페이지 로드 시 저장된 경로를 기준으로 'on' 클래스 적용
+  navItems.forEach((item) => {
+    if (item.getAttribute('href') === activePath) {
+      item.parentElement.classList.add('on');
+    }
+  });
+
+  // 각 <li>의 <a>에 클릭 이벤트 추가하여 로컬 스토리지에 경로 저장
+  navItems.forEach((item) => {
+    item.addEventListener('click', function() {
+      localStorage.setItem('activeNavPath', this.getAttribute('href'));
+    });
+  });
+
+  // 로고 클릭 시에도 로컬 스토리지에 경로 저장
+  if (logoLink) {
+    logoLink.addEventListener('click', function() {
+      localStorage.setItem('activeNavPath', this.getAttribute('href'));
+    });
+  }
 
   /* 헤더 스크롤 */
     const content = document.querySelector('#contents')
@@ -241,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // 1-3. 각 드롭다운에 맞게 초기화
     // 실행문 : header dropdown
     const dropdown1 = document.querySelector('.dropdown1');
-    initDropdown(dropdown1, ['KOR', 'ENG', 'JPN'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
+    initDropdown(dropdown1, ['KOR'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
 
     // 실행문 : footer dropdown
     const dropdown2 = document.querySelector('.dropdown2');
