@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
   /* [공통 상단] */
-  const originalPath = window.location.pathname;
-  let pathss = location.href;
-  console.log(pathss)
+  const originalPath = window.location.pathname === '/' ? '/index' : window.location.pathname.replace('.html', '');
   const path = originalPath.replace('.html', '')
+
+  console.log(originalPath)
+  // 로컬 스토리지에 activeNavPath가 없으면 기본값으로 설정
+  let activePath = path || '/index'
     const selectedLanguageOption = localStorage.getItem('selectedOption') || 'KOR';
     const flagImages = {
       KOR: 'korea_4.png',
@@ -89,16 +91,15 @@ document.addEventListener("DOMContentLoaded", function(){
   const navItems = document.querySelectorAll('nav ul li a');
   const logoLink = document.querySelector('h1 a');
 
-  // 로컬 스토리지에 activeNavPath가 없으면 기본값으로 설정
-  let activePath = localStorage.getItem('activeNavPath');
-  if (!activePath) {
-    activePath = '/index.html';
+  /*if (!activePath) {
+    activePath = '/index';
     localStorage.setItem('activeNavPath', activePath);
-  }
+  }*/
 
   // 페이지 로드 시 저장된 경로를 기준으로 'on' 클래스 적용
   navItems.forEach((item) => {
-    if (item.getAttribute('href') === activePath) {
+    console.log(item.getAttribute('href').replace('.html',''))
+    if (item.getAttribute('href').replace('.html','') === activePath) {
       item.parentElement.classList.add('on');
     }
   });
