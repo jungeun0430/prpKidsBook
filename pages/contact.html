@@ -6,13 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" sizes="16x16" href="resources/images/prokids_favicon.png">
 
-    <!-- SweetAlert2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- css -->
     <link rel="stylesheet" href="../../resources/css/style.css">
 
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- js -->
     <script src="../../resources/js/main.js"></script>
 
@@ -130,11 +126,7 @@
     requiredFields.forEach(field => {
       if (!field.value.trim()) {
         isValid = false;
-        Swal.fire({
-          icon: 'warning',
-          title: '입력 오류',
-          text: `${field.placeholder.replace("를 입력해주세요.", "")}을(를) 입력해주세요.`,
-        });
+        alert( `${field.placeholder.replace("를 입력해주세요.", "")}을(를) 입력해주세요.`)
         field.focus();
         return false; // 첫 번째 오류에서 멈춤
       }
@@ -151,20 +143,11 @@
 
         const reponse = await response.json();
         if (reponse.result === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: '성공',
-            text: '폼 제출을 성공하였습니다.',
-          }).then(() => {
-            form.reset(); // 폼 초기화
-          });
+          alert('양식 제출에 성공하였습니다.');
+          form.reset(); // 폼 초기화
         }
       } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: '서버 오류',
-          text: '서버와 통신 중 문제가 발생했습니다. 다시 시도해주세요.',
-        });
+        alert('서버와 통신 중 문제가 발생했습니다. 다시 시도해주세요.')
         console.error(error);
       }
     }
@@ -174,11 +157,7 @@
     const checkbox = document.querySelector('#contactForm input[type="checkbox"]').checked
     console.log(checkbox)
     if(!checkbox){
-      Swal.fire({
-        icon: 'warning',
-        title: '동의 필요',
-        text: '개인정보 처리방침에 동의해야 합니다.',
-      });
+      alert('개인정보 처리 방침에 동의해야 합니다.')
       checkbox.focus();
       return; // 체크박스 오류 시 더 이상 진행하지 않음
     }
