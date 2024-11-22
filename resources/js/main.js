@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const originalPath = window.location.pathname === '/' ? '/index' : window.location.pathname.replace('.html', '');
   const path = originalPath.replace('.html', '')
 
-  console.log(originalPath)
+  // console.log(originalPath)
   // 로컬 스토리지에 activeNavPath가 없으면 기본값으로 설정
   let activePath = path || '/index'
     const selectedLanguageOption = localStorage.getItem('selectedOption') || 'KOR';
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // 페이지 로드 시 저장된 경로를 기준으로 'on' 클래스 적용
   navItems.forEach((item) => {
-    console.log(item.getAttribute('href').replace('.html',''))
+    // console.log(item.getAttribute('href').replace('.html',''))
     if (item.getAttribute('href').replace('.html','') === activePath) {
       item.parentElement.classList.add('on');
     }
