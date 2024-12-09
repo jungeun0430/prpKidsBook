@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // 1-3. 각 드롭다운에 맞게 초기화
     // 실행문 : header dropdown
     const dropdown1 = document.querySelector('.dropdown1');
-    initDropdown(dropdown1, ['KOR'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
+    initDropdown(dropdown1, ['KOR', 'ENG', 'JPN'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
 
     // 실행문 : footer dropdown
     const dropdown2 = document.querySelector('.dropdown2');
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function indexPageTranslate(language) {
   /* sec1 번역 */
   document.querySelector('[data-translate="sec1_text1"]') ? document.querySelector('[data-translate="sec1_text1"]').innerText = language.sec1_text1 : "";
-  document.querySelector('[data-translate="sec1_text2"]').innerText = language.sec1_text2;
+  document.querySelector('[data-translate="sec1_text2"]').innerHTML = language.sec1_text2;
   document.querySelector('[data-translate="sec1_apple"]').src = language.sec1_apple.src;
   document.querySelector('[data-translate="sec1_apple"]').alt = language.sec1_apple.alt;
   document.querySelector('[data-translate="sec1_google"]').src = language.sec1_google.src;
@@ -300,33 +300,41 @@ function indexPageTranslate(language) {
   document.querySelector('[data-translate="sec2_title"]').innerText = language.sec2_title;
   document.querySelector('[data-translate="sec2_desc"]').innerHTML = language.sec2_desc;
   document.querySelector('[data-translate="sec2_dress_alt"]').alt = language.sec2_dress_alt;
+  document.querySelector('[data-translate="sec2_dress_alt"]').src = language.sec2_dress_src;
   document.querySelector('[data-translate="sec2_cloud1_alt"]').alt = language.sec2_cloud1_alt;
+  document.querySelector('[data-translate="sec2_cloud1_alt"]').src = language.sec2_cloud1_src;
   document.querySelector('[data-translate="sec2_cloud2_alt"]').alt = language.sec2_cloud2_alt;
+  document.querySelector('[data-translate="sec2_cloud2_alt"]').src = language.sec2_cloud2_src;
+  document.querySelector('[data-translate="sec2_phone2"]').src = language.sec2_phone2;
   /* sec3 번역 */
   document.querySelector('[data-translate="sec3_title1"]').innerText = language.sec3_title1;
   document.querySelector('[data-translate="sec3_desc1"]').innerHTML = language.sec3_desc1;
-  document.querySelector('[data-translate="sec3_title2"]').innerText = language.sec3_title2;
+  document.querySelector('[data-translate="sec3_title2"]').innerHTML = language.sec3_title2;
   document.querySelector('[data-translate="sec3_desc2"]').innerHTML = language.sec3_desc2;
   document.querySelector('[data-translate="sec3_title3"]').innerHTML = language.sec3_title3;
   document.querySelector('[data-translate="sec3_desc3"]').innerHTML = language.sec3_desc3;
   /* sec4, sec5 번역 */
   document.querySelector('[data-translate="sec4_title"]').innerText = language.sec4_title;
   document.querySelector('[data-translate="sec4_desc"]').innerHTML = language.sec4_desc;
+  document.querySelector('[data-translate="sec4_phone1"]').src = language.sec4_phone1;
+  document.querySelector('[data-translate="sec4_phone2"]').src = language.sec4_phone2;
   document.querySelector('[data-translate="sec5_title"]').innerHTML = language.sec5_title;
   document.querySelector('[data-translate="sec5_desc"]').innerHTML = language.sec5_desc;
+  document.querySelector('[data-translate="sec5_phone1"]').src = language.sec5_phone1;
+  document.querySelector('[data-translate="sec5_phone2"]').src = language.sec5_phone2;
   /* sec6 */
-  document.querySelector('[data-translate="sec6_title"]').innerText = language.sec6_title;
+  document.querySelector('[data-translate="sec6_title"]').innerHTML = language.sec6_title;
   document.querySelector('[data-translate="sec6_desc"]').innerHTML = language.sec6_desc;
   /* sec7 */
-  document.querySelector('[data-translate="sec7_title"]').innerText = language.sec7_title;
+  document.querySelector('[data-translate="sec7_title"]').innerHTML = language.sec7_title;
   document.querySelector('[data-translate="sec7_desc"]').innerHTML = language.sec7_desc;
   document.querySelector('[data-translate="sec7_img1"]').src = language.sec7_img1;
   document.querySelector('[data-translate="sec7_img2"]').src = language.sec7_img2;
   document.querySelector('[data-translate="sec7_img3"]').src = language.sec7_img3;
   document.querySelector('[data-translate="sec7_img4"]').src = language.sec7_img4;
   /* sec8 */
-  document.querySelector('[data-translate="sec8_star"]').src = language.sec8_star;
-  document.querySelector('[data-translate="sec8_btn"]').innerText = language.sec8_btn;
+  document.querySelector('[data-translate="sec8_star"]').style = language.sec8_star;
+  document.querySelector('[data-translate="sec8_btn"]').innerHTML = language.sec8_btn;
 }
 /* Contact 페이지 */
 function contactPageTranslate (language) {
