@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // 1-3. 각 드롭다운에 맞게 초기화
     // 실행문 : header dropdown
     const dropdown1 = document.querySelector('.dropdown1');
-    initDropdown(dropdown1, ['KOR', 'ENG', 'JPN'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
+    initDropdown(dropdown1, ['KOR'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
 
     // 실행문 : footer dropdown
     const dropdown2 = document.querySelector('.dropdown2');

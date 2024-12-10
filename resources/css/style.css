@@ -122,7 +122,7 @@ header.scroll nav > ul > li > a {color:#000;}
 header.sub.scroll nav > ul > li.on::after{background-color:#000;}
 header.scroll .select-box > button.label,
 header.scroll .select-box > .option-list > .option-item{color:#000;}
-/*header .select-box > button.label {background: none;cursor: unset}*/
+header .select-box > button.label {background: none;cursor: unset}
 header.scroll .select-box > button.label {background:url("/resources/images/header/dropdown_dark.svg") right center no-repeat;}
 
 /*  푸터 */
