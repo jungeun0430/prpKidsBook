@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const secondScreen = document.querySelector('#sec2 .phone-wrap .second');
   let hasTransitioned = false; // 애니메이션이 실행되었는지 확인하는 변수
   window.addEventListener('scroll', function () {
-    let scrollTop = window.pageYOffset - animationWrap.offsetTop + descWrap.offsetTop / 3;
+    let scrollTop = window.pageYOffset - animationWrap.offsetTop + descWrap.offsetTop / 6;
     let scrollRange = animationWrap.clientHeight - imageWrapHeight;
     let middlePoint = scrollRange * 0.1; // 20% 지점
 

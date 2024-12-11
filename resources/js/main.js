@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function(){
       const headerHtml = `
         <header>
           <div class="inner-wrap">
-            <h1><a href="/index.html"><img src="/resources/images/header/proKids_logo.svg" alt="ProKids"></a></h1>
+            <h1><a href="/"><img src="/resources/images/header/proKids_logo.svg" alt="ProKids"></a></h1>
             <nav>
               <ul>
-                <li><a href="/index.html">About</a></li>
-                <li><a href="/pages/contact.html">Contact us</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/pages/contact">Contact us</a></li>
                 <li>
                   <div class="select-box dropdown1">
                     <button class="label" data-value="${selectedOption}">
@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function(){
             <div class="footer-info-wrap">
                 <div>
                     <ul class="policy-wrap">
-                        <li><a href="/pages/policy/terms-of-policy.html">이용약관</a></li>
-                        <li><a href="/pages/policy/privacy-policy.html">개인정보 처리방침</a></li>
+                        <li><a href="/pages/policy/terms-of-policy">이용약관</a></li>
+                        <li><a href="/pages/policy/privacy-policy">개인정보 처리방침</a></li>
                     </ul>
                     <ul class="place-info">
                         <li>주소 : 서울특별시 송파구 법원로8길 8 SKV1 910호 (05855)</li>
