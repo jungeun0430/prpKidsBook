@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 <div>
                     <ul class="policy-wrap">
                         <li><a href="/pages/policy/terms-of-policy">이용약관</a></li>
-                        <li><a href="/pages/policy/privacy-policy">개인정보 처리방침</a></li>
+                        <li><a href="/pages/policy/privacy-policy">개인정보처리방침</a></li>
                     </ul>
                     <ul class="place-info">
                         <li>주소 : 서울특별시 송파구 법원로8길 8 SKV1 910호 (05855)</li>
@@ -297,7 +297,7 @@ function indexPageTranslate(language) {
   document.querySelector('[data-translate="sec1_google"]').src = language.sec1_google.src;
   document.querySelector('[data-translate="sec1_google"]').alt = language.sec1_google.alt;
   /* sec2 번역 */
-  document.querySelector('[data-translate="sec2_title"]').innerText = language.sec2_title;
+  document.querySelector('[data-translate="sec2_title"]').innerHTML = language.sec2_title;
   document.querySelector('[data-translate="sec2_desc"]').innerHTML = language.sec2_desc;
   document.querySelector('[data-translate="sec2_dress_alt"]').alt = language.sec2_dress_alt;
   document.querySelector('[data-translate="sec2_dress_alt"]').src = language.sec2_dress_src;
