@@ -442,7 +442,7 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec2 .cloud1 {right:36px;}
     #sec2 .cloud2 {right:48px;}
     #sec3 .container-wrap {max-width:initial;padding:0 24px;}
-    #sec3 .slide-wrap{flex-direction:column;height:972px;}
+    #sec3 .slide-wrap{flex-direction:column;/*height:972px;*/}
     #sec3 .slide-image {width:100%;}
     #sec3 .slide-image img {width: 100%;display: block;object-fit: cover;}
     #sec3 .slide-image:not(.active) {flex: 0 0 136px;position:relative;}
