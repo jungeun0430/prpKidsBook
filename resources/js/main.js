@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
             <nav>
               <ul>
                 <li><a href="/">About</a></li>
-                <li><a href="/pages/contact">Contact us</a></li>
+                <li><a href="/pages/contact">Contact</a></li>
                 <li>
                   <div class="select-box dropdown1">
                     <button class="label" data-value="${selectedOption}">

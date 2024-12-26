@@ -15,7 +15,7 @@
   },
   "sec1_class": "sec1-env-ver",
   "sec2_title": "A unique, customized storybook<br>starring your child",
-  "sec2_desc": "Let your child's imagination come to life!<br>By becoming the main character of the story,<br>children naturally develop their creativity and language skills.<br>Age and level-appropriate customized storybooks spark their interest in reading.<br>With ProKidsBook's AI, any child can become a storyteller<br>with high-quality content and illustrations!",
+  "sec2_desc": "Let your child's imagination come to life!<br>By becoming the main character of the story,<br>children naturally develop their creativity and language skills.<br>Age and level-appropriate customized storybooks spark their interest in reading.<br>With ProKidsBook's AI, any child can become a storyteller<br class='pc-only'>with high-quality content and illustrations!",
   "sec2_dress_alt": "Snow White Dress",
   "sec2_dress_src": "resources/images/eng/sec2_card_en.png",
   "sec2_cloud1_alt": "Magical World",
