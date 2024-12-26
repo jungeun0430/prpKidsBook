@@ -413,7 +413,7 @@ function contactPageTranslate (language) {
 /* 개인정보처리방침 페이지 */
 function privacyPolicyPageTranslate(language) {
   document.querySelector('[data-translate="meta_title_ppt"]').innerText = language.meta_title_ppt
-  document.querySelector('[data-translate="ppt_title"]').innerHTML = language.top_title;
+  document.querySelector('[data-translate="ppt_title"]').innerHTML = language.ppt_title;
   document.querySelector('[data-translate="footer_1"]').innerText = language.footer_1;
   document.querySelector('[data-translate="footer_2"]').innerText = language.footer_2;
   document.querySelector('[data-translate="footer_3"]').innerText = language.footer_3;
