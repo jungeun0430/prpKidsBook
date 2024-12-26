@@ -13,6 +13,7 @@ button {background: transparent;color: inherit;border: none;padding: 0;font: inh
 .pc-only{display: block!important;}
 .mobile-only{display:none!important;}
 .only-mobile-s{display:none!important;}
+[data-translate] {word-break: break-word!important;}
 /* 리스트 스타일 */
 ol {
     list-style-position: inside;  /* 번호를 안쪽에 표시 */
@@ -106,7 +107,7 @@ ol {
 .btn:hover{  background-color: rgba(41, 150, 123, 0.5);}
 .btn.small-ver{width:260px;height:80px;font-size:24px;}
 /* 헤더 */
-header {width:100%;height:80px;display:flex;align-items:center;justify-content:center;position:fixed;left:0;top:0;background-color:transparent;z-index: 1000;}
+header {width:100%;height:80px;display:flex;align-items:center;justify-content:center;position:fixed;left:0;top:0;background-color:transparent;z-index: 10005;}
 header > .inner-wrap {max-width:1280px;width:100%;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
 header h1 > a {display: block;}
 header nav > ul {display:flex;align-items:center;}
@@ -123,8 +124,8 @@ header.scroll nav > ul > li > a {color:#000;}
 header.sub.scroll nav > ul > li.on::after{background-color:#000;}
 header.scroll .select-box > button.label,
 header.scroll .select-box > .option-list > .option-item{color:#000;}
-header .select-box > button.label {background: none;cursor: unset}
-header.scroll .select-box > button.label {/*background:url("/resources/images/header/dropdown_dark.svg") right center no-repeat;*/}
+/*header .select-box > button.label {background: none;cursor: unset}*/
+header.scroll .select-box > button.label {background:url("/resources/images/header/dropdown_dark.svg") right center no-repeat;}
 
 /*  푸터 */
 footer {width:100%;background-color:#F3F8FE;padding:100px 0 90px;}
@@ -139,7 +140,7 @@ footer .logo-wrap{padding-bottom:28px;border-bottom: 1px solid #ccced2;margin-bo
 .place-info > li {font-size:14px;font-weight:400;color:#151515;}
 .footer-info-wrap .select-box{border:1px solid #6b6c6d;width:156px;margin:0;padding:10px 16px;}
 .footer-info-wrap .select-box > button.label {width:100%;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:#151515;position:relative;padding-right:13px;background:url("/resources/images/header/dropdown_dark.svg") right center no-repeat;background-size:12px;}
-.footer-info-wrap .select-box > .option-list {display:none;position:absolute;top:-94px;left:-1px;width:calc(100% + 2px);padding:14px 10px 18px 10px;border-width:1px 1px 0 1px;border-style:solid;border-color:#151515;background-color:#F3F8FE;margin-top:6px;z-index: 10000;}
+.footer-info-wrap .select-box > .option-list {display:none;position:absolute;top:-128px;left:-1px;width:calc(100% + 2px);padding:14px 10px 18px 10px;border-width:1px 1px 0 1px;border-style:solid;border-color:#151515;background-color:#F3F8FE;margin-top:6px;z-index: 10000;}
 .footer-info-wrap .select-box > .option-list::after{content:'';width:calc(100% - 20px);height:1px;background-color:#151515;position:absolute;left:50%;bottom:0;transform:translateX(-50%);}
 .footer-info-wrap .select-box > .option-list > .option-item {display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#151515;padding:0 6px;}
 .footer-info-wrap .select-box > .option-list > .option-item + .option-item {margin-top:16px;}
@@ -433,11 +434,13 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .desc-wrap {width:100%;margin:0;padding:0 24px;}
     #sec1 {height: 100vh;}
     #sec1 > .inner-wrap{max-width:100%;padding-right: 24px;padding-left:24px;padding-top:200px;}
+    #sec1 > .inner-wrap.sec1-env-ver{padding-bottom: 50px;}
     #sec1 .text-wrap {padding-top:160px;}
     #sec1 .text-wrap .book{width:144px;height:150px;}
     #sec1 .star{width:250px;height:300px;background-size: contain;right: -280px;}
     #sec1 .star > .small1{animation: float 2.3s ease-in-out infinite;}
     #sec1 .star > .small2{animation: float 2.4s ease-in-out infinite;}
+    #sec2 > .inner-wrap {padding: 0 24px;}
     #sec2 .animation-wrap{max-width:initial;width:calc(100% - 40px);}
     #sec2 .dress  {left:48px;}
     #sec2 .cloud1 {right:36px;}
@@ -457,11 +460,11 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec3 .star{position: absolute;right: -40px; top: -90px; animation: float 1.5s ease-in-out infinite;z-index: 100}
     #fullpage .inner-wrap{display: flex;flex-direction:column;align-items: center;}
     #sec4 > .inner-wrap{padding-top:80px;}
-    #sec4 .desc-wrap {margin-bottom:32px;}
+    #sec4 .desc-wrap {margin-bottom:32px;padding:0 24px;max-width:100%;}
     #sec4 .image-wrap{width: 100%;height:calc(100vh - 200px);}
     #sec4 .image-wrap > img {height: 81%;}
     #sec5 > .inner-wrap{padding-top:80px;}
-    #sec5 .desc-wrap {margin-bottom:32px;}
+    #sec5 .desc-wrap {margin-bottom:32px;padding:0 24px;max-width:100%;}
     #sec5 .image-wrap{width: 100%;height:calc(100vh - 200px);}
     #sec5 .image-wrap > img {height: 81%;}
     #sec7 > .inner-wrap{max-width:initial;padding: 50px 24px;}
@@ -514,7 +517,7 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .place-info > li {font-size:12px;font-weight:400;color:#151515;}
     .footer-info-wrap .select-box{border:1px solid #151515;margin-top:24px;}
     .footer-info-wrap .select-box > button.label {display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:#151515;position:relative;padding-right:13px;background:url("/resources/images/header/dropdown_dark.svg") right center no-repeat;background-size:12px;}
-    .footer-info-wrap .select-box > .option-list {display:none;position:absolute;top:-94px;left:-1px;width:calc(100% + 2px);padding:14px 10px 18px 10px;border-width:1px 1px 0 1px;border-style:solid;border-color:#151515;background-color:#F3F8FE;margin-top:6px;z-index: 10000;}
+    .footer-info-wrap .select-box > .option-list {display:none;position:absolute;top:-130px;left:-1px;width:calc(100% + 2px);padding:14px 10px 18px 10px;border-width:1px 1px 0 1px;border-style:solid;border-color:#151515;background-color:#F3F8FE;margin-top:6px;z-index: 10000;}
     .footer-info-wrap .select-box > .option-list::after{content:'';width:calc(100% - 20px);height:1px;background-color:#151515;position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);}
     .footer-info-wrap .select-box > .option-list::before{content:'';width:100%;height:1px;background-color:#F3F8FE;position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);}
     .footer-info-wrap .select-box > .option-list > .option-item {display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#151515;padding:0 6px;}
@@ -554,6 +557,8 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec7 .image-wrap > .image{min-height:239px;width: calc(50% - 8px);margin-bottom:8px;}
     #sec7 .image-wrap > .image > img{object-fit:contain;}
     #sec7 .image-wrap > .image:nth-child(2n){padding-top:0;}
+    /* contact페이지 */
+    span.star-contact{display: none!important;}
 }
 
 @media screen and (min-width: 700px) and (max-width: 1000px) {
@@ -621,7 +626,8 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec1 .text-wrap > h2 > span {font-size: 30px;}
     #sec1 .text-wrap > h2 + .btn-wrap { margin-top: 19px;gap:12px;}
     #sec1 .btn-wrap {gap:10px;}
-    #sec1  .download-badge { display: inline-block;width: 120px; height: 38px; }
+    #sec1  .download-badge { display: inline-block; height: 38px; }
+    #sec1  .download-badge > img{height: 100%;}
 
     /* sec2 */
     #sec2 {height:1200px;overflow:hidden;}
@@ -640,8 +646,8 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec3 > .inner-wrap{padding:50px 0 70px;display:flex;flex-direction:column;align-items:center;}
     #sec3 .container-wrap {max-width:initial;padding:0 24px;}
     #sec3 .star{display:none;width:50px;height:46px;position: absolute;right: -90px; top: -90px; animation: float 1.5s ease-in-out infinite;z-index: 100}
-    #sec3 .desc-wrap{width:auto;}
-    #sec3 .desc-wrap::after{content:'';width:45px;height:34px;position: absolute;left:-8px;top:22px;}
+    #sec3 .desc-wrap{width:auto;max-width: 375px;}
+    #sec3 .desc-wrap::after{content:'';width:45px;height:34px;position: absolute;left:-14px;top:22px;}
     /*#sec3 .hover-box{display:flex;justify-content:center;align-items:center;flex-direction:column;max-width:initial;margin:32px auto 0;}*/
     #sec3 .slide-wrap{gap:12px;flex-direction:column;height:370px;}
     #sec3 .slide-image img {width: 100%;height: 267px;display: block;object-fit: cover;}
@@ -719,9 +725,9 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .form-box{padding:12px 0;}
     .form-wrap.con2 {gap:16px;}
     .form-wrap.con2 > .form-box{width:calc(50% - 8px);}
-    .form-box > .label {width:72px;font-size:12px;}
+    .form-box > .label {width:90px;font-size:12px;}
     .form-box > .label.essential::after{font-size:12px;margin-left:2px;}
-    .form-box > .input-box {width:calc(100% - 72px);}
+    .form-box > .input-box {width:calc(100% - 90px);}
     .input-box{border-radius:4px;}
     .input-box > input {padding:7px 16px;font-size:12px;}
     .input-box > textarea {padding:7px 16px;font-size:12px;height:150px;}
@@ -732,7 +738,9 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .check-box label > input + span:before{width:16px;height:16px;}
 }
 @media (max-width: 500px) {
-    #sec2 .desc-wrap{padding-left:12px;padding-right:12px;}
+    header h1{width:70px;}
+    header nav > ul > li + li {margin-left:5px;}
+    #sec2 .desc-wrap{padding-left:6px;padding-right:6px;}
     /* sec2 */
     #sec2 .phone-wrap{width:100%;height:196px;background-size: contain;}
     /* sec4 */
@@ -742,6 +750,11 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     /* sec6 */
     #sec6 svg{width:100%;height:100%;top:-60px;}
     #sec8 .star > img {top:45px;animation: float2 2.3s ease-in-out infinite;}
+    /* contact */
+    .form-wrap.con2 {gap:0;flex-wrap:wrap;}
+    .form-wrap.con2 > * + *{border-top:1px solid #EAEAEA;}
+    .form-wrap.con2 > .form-box{width:100%;}
+    .input-box input{padding:6px 12px;}
 }
 @media (max-width:400px) {
     .only-mobile-s{display:inline!important;}
