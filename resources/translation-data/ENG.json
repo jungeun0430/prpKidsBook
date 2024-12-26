@@ -1,4 +1,8 @@
 {
+  "meta_title": "ProkidsBook",
+  "meta_title_contact": "ProkidsBook | Contact",
+  "meta_title_ppt": "ProkidsBook | Privacy Policy",
+  "meta_title_top": "ProkidsBook | Terms of Service",
   "sec1_text1": "AI and Storybooks",
   "sec1_text2": "Start Your Child's<br>Special Education",
   "sec1_apple": {
@@ -30,11 +34,11 @@
   "sec4_phone1": "resources/images/eng/sec4_phone1_en.svg",
   "sec4_phone2": "resources/images/eng/sec4_phone1_r_en.svg",
   "sec5_title": "Become the Main Character<br>of the Story You Want to Read!",
-  "sec5_desc": "Mom, I want to be the main character in this storybook!<br>Change the main character of any storybook your child wants to read to<br> your child. Now even books they didn't like to read before will become exciting!",
+  "sec5_desc": "Mom, I want to be the main character in this storybook! Change the main character of any storybook your child wants to read to  your child. Now even books they didn't like to read before will become exciting!",
   "sec5_phone1": "resources/images/eng/sec5_phone1_en.svg",
   "sec5_phone2": "resources/images/eng/sec5_phone1_r_en.svg",
-  "sec5_style": "calc(100vh - 272px)",
-  "sec4_style": "calc(100vh - 273px)",
+  "sec4_class": "sec4-eng-ver",
+  "sec5_class": "sec5-eng-ver",
   "sec6_title": "Enjoy with Various <br>Illustration Styles!",
   "sec6_desc": "Born after countless tests, ProKidsBook's illustration styles help children become storybook authors with high-quality illustrations.<br>These visual experiences stimulate their senses and increase their interest in reading.",
   "sec7_title": "Vivid ProKidsBook<br>User Reviews from Parents",
@@ -70,5 +74,7 @@
   "contact_15": "Message",
   "contact_16": "Enter your inquiry here.",
   "contact_17": "I agree to the Privacy Policy.",
-  "contact_18": "Submit"
+  "contact_18": "Submit",
+  "ppt_title": "Terms of Service",
+  "top_title": "Privacy Policy"
 }

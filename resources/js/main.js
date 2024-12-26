@@ -261,10 +261,14 @@ document.addEventListener("DOMContentLoaded", function(){
       case "/pages/contact":
         contactPageTranslate(language);
         break;
-        case "/pages/policy/privacy-policy":
-          break;
-        default:
-          break;
+      case "/pages/policy/privacy-policy":
+        privacyPolicyPageTranslate(language);
+        break;
+      case "/pages/policy/terms-of-policy":
+        termsOfPolicy(language);
+        break;
+      default:
+        break;
       }
       // 드롭다운의 텍스트도 업데이트
       const dropdown2 = document.querySelector('.dropdown2');
@@ -298,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 /* 인덱스 페이지 */
 function indexPageTranslate(language) {
+  document.querySelector('[data-translate="meta_title"]').innerText = language.meta_title
   /* sec1 번역 */
   document.querySelector('[data-translate="sec1_text1"]') ? document.querySelector('[data-translate="sec1_text1"]').innerText = language.sec1_text1 : "";
   document.querySelector('[data-translate="sec1_text2"]').innerHTML = language.sec1_text2;
@@ -339,9 +344,22 @@ function indexPageTranslate(language) {
   document.querySelector('[data-translate="sec5_desc"]').innerHTML = language.sec5_desc;
   document.querySelector('[data-translate="sec5_phone1"]').src = language.sec5_phone1;
   document.querySelector('[data-translate="sec5_phone2"]').src = language.sec5_phone2;
-  document.querySelector('[data-translate="sec5_style"]').style.height = language.sec5_style
-  document.querySelector('[data-translate="sec4_style"]').style.height = language.sec4_style
-  // document.querySelector('[data-translate="sec4_style"]').style.height = language.sec5_style
+  let elementSec4 = document.querySelector('[data-translate="sec4_class"]');
+  let elementSec4ClassNames = [...elementSec4.classList];
+  elementSec4ClassNames.forEach(className => {
+    if(className !== "image-wrap") {
+      elementSec4.classList.remove(className)
+    }
+  })
+  document.querySelector('[data-translate="sec4_class"]').classList.add(language.sec4_class);
+  let elementSec5 = document.querySelector('[data-translate="sec5_class"]');
+  let elementSec5ClassNames = [...elementSec5.classList];
+  elementSec5ClassNames.forEach(className => {
+    if(className !== "image-wrap") {
+      elementSec5.classList.remove(className)
+    }
+  })
+  document.querySelector('[data-translate="sec5_class"]').classList.add(language.sec5_class);
   /* sec6 */
   document.querySelector('[data-translate="sec6_title"]').innerHTML = language.sec6_title;
   document.querySelector('[data-translate="sec6_desc"]').innerHTML = language.sec6_desc;
@@ -366,6 +384,7 @@ function indexPageTranslate(language) {
 }
 /* Contact 페이지 */
 function contactPageTranslate (language) {
+  document.querySelector('[data-translate="meta_title_contact"]').innerText = language.meta_title_contact
   document.querySelector('[data-translate="contact_1"]').innerHTML = language.contact_1;
   document.querySelector('[data-translate="contact_2"]').innerText = language.contact_2;
   document.querySelector('[data-translate="contact_3"]').innerText = language.contact_3;
@@ -390,6 +409,26 @@ function contactPageTranslate (language) {
   document.querySelector('[data-translate="footer_4"]').innerText = language.footer_4;
   document.querySelector('[data-translate="footer_5"]').innerText = language.footer_5;
   document.querySelector('[data-translate="footer_6"]').innerText = language.footer_6;
-  /*document.querySelector('[data-translate="footer_7"]').innerText = language.footer_7;
-  document.querySelector('[data-translate="footer_8"]').innerText = language.footer_8;*/
+}
+/* 개인정보처리방침 페이지 */
+function privacyPolicyPageTranslate(language) {
+  document.querySelector('[data-translate="meta_title_ppt"]').innerText = language.meta_title_ppt
+  document.querySelector('[data-translate="ppt_title"]').innerHTML = language.top_title;
+  document.querySelector('[data-translate="footer_1"]').innerText = language.footer_1;
+  document.querySelector('[data-translate="footer_2"]').innerText = language.footer_2;
+  document.querySelector('[data-translate="footer_3"]').innerText = language.footer_3;
+  document.querySelector('[data-translate="footer_4"]').innerText = language.footer_4;
+  document.querySelector('[data-translate="footer_5"]').innerText = language.footer_5;
+  document.querySelector('[data-translate="footer_6"]').innerText = language.footer_6;
+}
+/* 이용약관 페이지 */
+function termsOfPolicy(language) {
+  document.querySelector('[data-translate="meta_title_top"]').innerText = language.meta_title_top
+  document.querySelector('[data-translate="top_title"]').innerHTML = language.top_title;
+  document.querySelector('[data-translate="footer_1"]').innerText = language.footer_1;
+  document.querySelector('[data-translate="footer_2"]').innerText = language.footer_2;
+  document.querySelector('[data-translate="footer_3"]').innerText = language.footer_3;
+  document.querySelector('[data-translate="footer_4"]').innerText = language.footer_4;
+  document.querySelector('[data-translate="footer_5"]').innerText = language.footer_5;
+  document.querySelector('[data-translate="footer_6"]').innerText = language.footer_6;
 }

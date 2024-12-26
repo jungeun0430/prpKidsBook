@@ -1,4 +1,8 @@
 {
+  "meta_title": "ProkidsBook",
+  "meta_title_contact": "ProkidsBook | Contact",
+  "meta_title_ppt": "ProkidsBook | 個人情報処理方針",
+  "meta_title_top": "ProkidsBook | 利用規約",
   "sec1_text1": "AIと絵本で始める",
   "sec1_text2": "うちの子だけの特別な教育",
   "sec1_apple": {
@@ -33,8 +37,8 @@
   "sec5_desc": "お母さん、私この童話の主人公になってみたい！お子様が読みたい童話の主人公を、<br>うちの子に変えてみましょう。\n読むのが嫌だった童話も、これからは興味津々で読めるようになります。",
   "sec5_phone1": "resources/images/jpn/sec5_phone1_jp.svg",
   "sec5_phone2": "resources/images/jpn/sec5_phone1_r_jp.svg",
-  "sec4_style": "calc(100vh - 260px)",
-  "sec5_style": "calc(100vh - 260px)",
+  "sec4_class": "sec4-jpn-ver",
+  "sec5_class": "sec5-jpn-ver",
   "sec6_title": "多様な画風で楽しもう！",
   "sec6_desc": "数多くのテストを経て誕生したプロキッズブックの画風は、お子様が\nレベルの高い絵の童話作家になれるようサポートします。このような視覚的な\n経験は感性を刺激し、読書への興味を高めます。",
   "sec7_title": "保護者の皆様からのプロキッズブック使用体験談",
@@ -70,5 +74,7 @@
   "contact_15": "内容",
   "contact_16": "お問い合わせ内容をご入力ください。",
   "contact_17": "プライバシーポリシーに同意します。",
-  "contact_18": "送信"
+  "contact_18": "送信",
+  "ppt_title": "個人情報処理方針",
+  "top_title": "利用規約"
 }

@@ -273,8 +273,9 @@ footer .logo-wrap{padding-bottom:28px;border-bottom: 1px solid #ccced2;margin-bo
 #sec5 {width:100%;background: url("/resources/images/contents/sec4_bg2.svg") center center no-repeat;background-size:cover;overflow: hidden;}
 #sec5.section.active{z-index: 11;}
 #sec5 > .inner-wrap{padding-top:100px;display:flex;flex-direction:column;justify-content:space-between;height:100%;}
-#sec5 .desc-wrap {margin-bottom:70px;width:920px;}
+#sec5 .desc-wrap {/*margin-bottom:70px*/;width:920px;}
 #sec5 .image-wrap{width:716px;height:calc(100vh - 440px);margin:0 auto;display:flex;justify-content: center;}
+#sec5 .image-wrap.sec5-eng-ver {height: calc(100vh - 440px);}
 #sec5 .image-wrap img{object-fit: contain;object-position: center bottom;}
 
 
@@ -567,6 +568,9 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     /* sec5 */
     #sec5 .image-wrap > img {width:100%;height:99%;}
 }
+@media (max-width:767px) {
+    header.scroll{background-color:rgba(255,255,255,0.8);}
+}
 @media (max-width:700px) {
     /*.pc-only{display: none!important;}
     .mobile-only{display:block!important;}*/
@@ -660,10 +664,14 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     /* sec4 */
     #sec4 {height:100vh;background: url("/resources/images/contents/sec4_bg1.svg") center center no-repeat;background-size:cover;overflow: hidden;}
     #sec4 .image-wrap {padding:0 12px;height: calc(100vh - 230px);}
+    #sec4 .image-wrap.sec4-jpn-ver {padding:0 12px;height: calc(100vh - 260px);}
+    #sec4 .image-wrap.sec4-eng-ver {padding:0 12px;height: calc(100vh - 273px);}
     #sec4 .image-wrap > img  {width:100%;height:98%;}
     /* sec5 */
     #sec5 {height:100vh;background: url("/resources/images/contents/sec4_bg2.svg") center center no-repeat;background-size:cover;overflow: hidden;}
     #sec5 .image-wrap {padding:0 12px;height: calc(100vh - 230px);}
+    #sec5 .image-wrap.sec5-jpn-ver {padding:0 12px;height: calc(100vh - 260px);}
+    #sec5 .image-wrap.sec5-eng-ver {padding:0 12px;height: calc(100vh - 272px);}
     #sec5 .image-wrap > img {width:100%;height:98%;}
 
     /* sec6 */
