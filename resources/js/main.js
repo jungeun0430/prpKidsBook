@@ -366,10 +366,91 @@ function indexPageTranslate(language) {
   /* sec7 */
   document.querySelector('[data-translate="sec7_title"]').innerHTML = language.sec7_title;
   document.querySelector('[data-translate="sec7_desc"]').innerHTML = language.sec7_desc;
-  document.querySelector('[data-translate="sec7_img1"]').src = language.sec7_img1;
-  document.querySelector('[data-translate="sec7_img2"]').src = language.sec7_img2;
-  document.querySelector('[data-translate="sec7_img3"]').src = language.sec7_img3;
-  document.querySelector('[data-translate="sec7_img4"]').src = language.sec7_img4;
+  /*let sec7SwiperSlide;
+  let sec7SwiperCards;
+  if (sec7SwiperSlide) {
+    sec7SwiperSlide.destroy(true, true); // true: DOM, 이벤트 모두 초기화
+  }
+  if (sec7SwiperCards) {
+    sec7SwiperCards.destroy(true, true);
+  }*/
+  let sec7SwiperSlide = new Swiper('.sec7_swiper_slide', {
+    effect: "cards",
+    spaceBetween: 18,
+    loop:false,
+    breakpoints : {
+      500: {
+        effect: "slide",
+        slidesPerView: 2,
+      },
+      1024: {
+        effect: "slide",
+        slidesPerView: 4,
+      }
+    },
+    pagination: {
+      el: ".sec7_swiper_slide .swiper-pagination",
+      clickable: true,
+    },
+  });
+  let sec7SwiperCards = new Swiper('.sec7_swiper_card', {
+    pagination: {
+      el: ".sec7_swiper_card .swiper-pagination",
+      clickable: true,
+    },
+    effect: "cards",
+    loop:false,
+    grabCursor: true,
+  });
+  // 새로운 이미지 경로를 얻는 코드
+ /* var newImageSrcs = [language.sec7_img1, language.sec7_img2, language.sec7_img3, language.sec7_img4];
+  console.log(sec7SwiperCards.slides)
+
+// 기존 DOM 초기화
+  var slides1Wrapper = document.querySelector('.sec7_swiper_slide .swiper-wrapper');
+  var slides2Wrapper = document.querySelector('.sec7_swiper_card .swiper-wrapper');
+
+// 기존 슬라이드 제거
+  slides1Wrapper.innerHTML = '';
+  slides2Wrapper.innerHTML = '';
+
+// 새로운 이미지에 대한 슬라이드 추가
+  newImageSrcs.forEach(function (src, index) {
+    var slideContent = `<div class="swiper-slide image"><img src="${src}" data-translate="sec7_img${index}" alt="" ></div>`;
+
+    // 각각의 Swiper에 슬라이드 추가
+    slides1Wrapper.insertAdjacentHTML('beforeend', slideContent);
+    slides2Wrapper.insertAdjacentHTML('beforeend', slideContent);
+  });
+
+// Swiper 업데이트 호출
+  sec7SwiperSlide.update();
+  sec7SwiperCards.update();*/
+  /*// 새로운 이미지 경로를 얻는 코드
+  var newImageSrcs = [language.sec7_img1, language.sec7_img2, language.sec7_img3, language.sec7_img4];
+
+// 기존의 모든 슬라이드 제거
+  var slides1 = document.querySelector('.sec7_swiper_slide');
+  var slides2 = document.querySelector('.sec7_swiper_card');
+  var swiperSlides1 = slides1.querySelectorAll('.swiper-slide');
+  swiperSlides1.forEach(function(slide) {
+    slide.parentNode.removeChild(slide);
+  });
+  var swiperSlides2 = slides2.querySelectorAll('.swiper-slide');
+  swiperSlides2.forEach(function(slide) {
+    slide.parentNode.removeChild(slide);
+  });
+
+
+// 새로운 이미지에 대한 슬라이드 추가
+  newImageSrcs.forEach(function (src, index) {
+    var slideContent = '<div class="image swiper-slide"><img src="' + src + '" data-translate="sec7_img"></div>';
+    sec7SwiperSlide.appendSlide(slideContent);
+    sec7SwiperCards.appendSlide(slideContent);
+  });
+  // 반드시 업데이트를 호출해줍니다.
+  sec7SwiperSlide.update();
+  sec7SwiperCards.update();*/
   /* sec8 */
   document.querySelector('[data-translate="sec8_star"]').style = language.sec8_star;
   document.querySelector('[data-translate="sec8_btn"]').innerHTML = language.sec8_btn;
@@ -379,6 +460,7 @@ function indexPageTranslate(language) {
   document.querySelector('[data-translate="footer_4"]').innerText = language.footer_4;
   document.querySelector('[data-translate="footer_5"]').innerText = language.footer_5;
   document.querySelector('[data-translate="footer_6"]').innerText = language.footer_6;
+
   /*document.querySelector('[data-translate="footer_7"]').innerText = language.footer_7;
   document.querySelector('[data-translate="footer_8"]').innerText = language.footer_8;*/
 }
