@@ -370,7 +370,10 @@ function indexPageTranslate(language) {
   /* sec7 */
   document.querySelector('[data-translate="sec7_title"]').innerHTML = language.sec7_title;
   document.querySelector('[data-translate="sec7_desc"]').innerHTML = language.sec7_desc;
-
+  document.querySelector('[data-translate="sec7_img1"]').src = language.sec7_img1;
+  document.querySelector('[data-translate="sec7_img2"]').src = language.sec7_img2;
+  document.querySelector('[data-translate="sec7_img3"]').src = language.sec7_img3;
+  document.querySelector('[data-translate="sec7_img4"]').src = language.sec7_img4;
   function loadSec7Slider() {
     // 너비에 따라 Swiper 초기화
     if (window.innerWidth >= 500) {
