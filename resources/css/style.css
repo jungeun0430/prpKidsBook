@@ -712,7 +712,7 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .check-box label > input + span:before{width:16px;height:16px;}
 }
 @media (max-width: 500px) {
-    .sec7_swiper_card{width:75%;}
+    .sec7_swiper_slide{width:75%;}
     /*.sec7_swiper_slide{display: none!important;}*/
     header h1{width:70px;}
     header nav > ul > li + li {margin-left:5px;}

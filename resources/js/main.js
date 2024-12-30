@@ -1,3 +1,4 @@
+let sec7SwiperSlide; // sec7 슬라이더 선언
 document.addEventListener("DOMContentLoaded", function(){
   /* [공통 상단] */
   const originalPath = window.location.pathname === '/' ? '/index' : window.location.pathname.replace('.html', '');
@@ -191,6 +192,9 @@ document.addEventListener("DOMContentLoaded", function(){
           renderOptions(option); // 선택된 항목 제외한 옵션 렌더링
           // 번역
           translateText(option,path)
+          if(path === '/' || path === '/index') {
+            sec7SwiperSlide.destroy(true, true)
+          }
         }
       }
 
@@ -366,8 +370,7 @@ function indexPageTranslate(language) {
   /* sec7 */
   document.querySelector('[data-translate="sec7_title"]').innerHTML = language.sec7_title;
   document.querySelector('[data-translate="sec7_desc"]').innerHTML = language.sec7_desc;
-  
-  let sec7SwiperSlide; // sec7 슬라이더 선언
+
   function loadSec7Slider() {
     // 너비에 따라 Swiper 초기화
     if (window.innerWidth >= 500) {
