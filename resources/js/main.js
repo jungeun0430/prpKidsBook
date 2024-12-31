@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const flagImages = {
       KOR: 'korea_4.png',
       ENG: 'america_4.png',
-      JPN: 'japan_4.png'
+      JPN: 'japan_4.png',
+      VIET: 'viet.svg'
     };
     function rendererHeader(selectedOption) {
       let selectedFlagImage = flagImages[selectedOption];
@@ -182,7 +183,8 @@ document.addEventListener("DOMContentLoaded", function(){
           const flagImages = {
             KOR: '/resources/images/header/korea_4.png',
             ENG: '/resources/images/header/america_4.png',
-            JPN: '/resources/images/header/japan_4.png'
+            JPN: '/resources/images/header/japan_4.png',
+            VIET: '/resources/images/header/viet.svg'
           };
           label.querySelector('.label-img').src = flagImages[option]; // 라벨 이미지 업데이트
           label.querySelector('.label-img').alt = `${option} flag`; // alt 속성 업데이트
@@ -229,7 +231,8 @@ document.addEventListener("DOMContentLoaded", function(){
       const flagImages = {
         KOR: '/resources/images/header/korea_4.png',
         ENG: '/resources/images/header/america_4.png',
-        JPN: '/resources/images/header/japan_4.png'
+        JPN: '/resources/images/header/japan_4.png',
+        VIET: '/resources/images/header/viet.svg'
       };
       img.src = flagImages[option];
       img.alt = `${option} flag`;
@@ -292,14 +295,14 @@ document.addEventListener("DOMContentLoaded", function(){
   // 1-3. 각 드롭다운에 맞게 초기화
     // 실행문 : header dropdown
     const dropdown1 = document.querySelector('.dropdown1');
-    initDropdown(dropdown1, ['KOR', 'ENG', 'JPN'], renderOptionWithImage); //['KOR', 'ENG', 'JPN']
+    initDropdown(dropdown1, ['KOR', 'ENG', 'JPN','VIET'], renderOptionWithImage); //['KOR', 'ENG', 'JPN','VIET']
 
     // 실행문 : footer dropdown
     const dropdown2 = document.querySelector('.dropdown2');
     initDropdown(dropdown2, [
-      {option: {'KOR':'프로','ENG':'Pro','JPN':'Pro'}, link: 'https://procorp.co.kr/'},
-      {option: {'KOR':'IEA','ENG':'IEA','JPN':'IEA'}, link: 'https://www.iea.co.kr/'},
-      {option: {'KOR':'제이비트리','ENG':'JBTree','JPN':'JBTree'}, link: 'https://jbtree.co.kr/'}
+      {option: {'KOR':'프로','ENG':'Pro','JPN':'Pro','VIET':'Pro'}, link: 'https://procorp.co.kr/'},
+      {option: {'KOR':'IEA','ENG':'IEA','JPN':'IEA','VIET':'IEA'}, link: 'https://www.iea.co.kr/'},
+      {option: {'KOR':'제이비트리','ENG':'JBTree','JPN':'JBTree','VIET':'JBTree'}, link: 'https://jbtree.co.kr/'}
     ], renderOptionTextOnly);
 });
 
@@ -308,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function indexPageTranslate(language) {
   document.querySelector('[data-translate="meta_title"]').innerText = language.meta_title
   /* sec1 번역 */
-  document.querySelector('[data-translate="sec1_text1"]') ? document.querySelector('[data-translate="sec1_text1"]').innerText = language.sec1_text1 : "";
+  document.querySelector('[data-translate="sec1_text1"]') ? document.querySelector('[data-translate="sec1_text1"]').innerHTML = language.sec1_text1 : "";
   document.querySelector('[data-translate="sec1_text2"]').innerHTML = language.sec1_text2;
   document.querySelector('[data-translate="sec1_apple"]').src = language.sec1_apple.src;
   document.querySelector('[data-translate="sec1_apple"]').alt = language.sec1_apple.alt;
@@ -340,7 +343,7 @@ function indexPageTranslate(language) {
   document.querySelector('[data-translate="sec3_title3"]').innerHTML = language.sec3_title3;
   document.querySelector('[data-translate="sec3_desc3"]').innerHTML = language.sec3_desc3;
   /* sec4, sec5 번역 */
-  document.querySelector('[data-translate="sec4_title"]').innerText = language.sec4_title;
+  document.querySelector('[data-translate="sec4_title"]').innerHTML = language.sec4_title;
   document.querySelector('[data-translate="sec4_desc"]').innerHTML = language.sec4_desc;
   document.querySelector('[data-translate="sec4_phone1"]').src = language.sec4_phone1;
   document.querySelector('[data-translate="sec4_phone2"]').src = language.sec4_phone2;
