@@ -35,7 +35,9 @@ document.addEventListener("DOMContentLoaded", function(){
                       <img src="/resources/images/header/${selectedFlagImage}" alt="" class="label-img" />
                       <span>${selectedOption}</span>
                     </button>
-                    <ul class="option-list"></ul>
+                    <ul class="option-list">
+   
+                    </ul>
                   </div>
                 </li>
               </ul>
@@ -70,9 +72,6 @@ document.addEventListener("DOMContentLoaded", function(){
                         <span data-translate="footer_6">패밀리 사이트</span>
                     </button>
                     <ul class="option-list">
-                        <li><a href="#" data-translate="footer_7">프로</a></li>
-                        <li><a href="#" >IEA</a></li>
-                        <li><a href="#" data-translate="footer_8">제이비트리</a></li>
                     </ul>
                 </div>
             </div>
@@ -141,24 +140,28 @@ document.addEventListener("DOMContentLoaded", function(){
     @param {Array} options 옵션 배열 (예: ['KOR', 'ENG', 'JPN'])
     @param {Function} renderOption 옵션을 렌더링하는 커스텀 함수
   * */
-    function initDropdown(dropdownEl, options, renderOption) {
+    function initDropdown(dropdownEl, options, renderOption, footer) {
       const label = dropdownEl.querySelector('.label');
       const labelText = label.querySelector('span');
       const optionList = dropdownEl.querySelector('.option-list');
 
-
       // 옵션 렌더링 함수
       function renderOptions(selected) {
         optionList.innerHTML = ''; // 기존 옵션 초기화
-        const filteredOptions = options.filter(option => option !== selected);
-
-        filteredOptions.forEach(option => {
+        let filteredOptions = "";
+        if(footer){
+          filteredOptions = options;
+        }else{
+          filteredOptions = options.filter(option => option !== selected);
+        }
+        filteredOptions.forEach((option, index) => {
           const li = document.createElement('li');
           li.classList.add('option-item');
-          li.setAttribute('data-value', option);
+          console.log(index,"asdasdasdas", options.length)
+          // li.setAttribute('data-value', option);
 
           // 외부에서 정의한 렌더링 방식 호출
-          renderOption(li, option);
+          renderOption(li, option, dropdownEl);
 
           // 옵션 클릭 이벤트 바인딩
           li.addEventListener('click', (event) => {
@@ -207,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function(){
         renderOptions(localStorage.getItem('selectedOption') || options[0]);
       });
       // 초기 옵션 렌더링
-      renderOptions(localStorage.getItem('selectedOption') || options[0]);
     }
     function translateText (option,path) {
       // 번역
@@ -245,15 +247,18 @@ document.addEventListener("DOMContentLoaded", function(){
       li.appendChild(span);
     }
   // 1-2. 텍스트만 포함된 옵션 렌더링 함수 (링크 이동)
-    function renderOptionTextOnly(li, item) {
+    function renderOptionTextOnly(li, item,dropdownEl) {
       const a = document.createElement('a');
-      a.textContent = item.option[localStorage.getItem('selectedOption')];
+      const selectOption =  localStorage.getItem('selectedOption') !== null ? localStorage.getItem('selectedOption') : 'KOR'
+      a.textContent = item.option[selectOption];
       a.href = item.link;
       a.target = '_blank';
       a.addEventListener('click', (event) => {
         event.stopPropagation(); // 부모 이벤트 전파 방지
         dropdownEl.classList.remove('active'); // 드롭다운 닫기
       });
+      // let ss = `<span>${selectOption}</span>`
+      li.setAttribute('data-value', item.option[selectOption])
       li.appendChild(a);
     }
   // 언어 번역
@@ -300,10 +305,34 @@ document.addEventListener("DOMContentLoaded", function(){
     // 실행문 : footer dropdown
     const dropdown2 = document.querySelector('.dropdown2');
     initDropdown(dropdown2, [
-      {option: {'KOR':'프로','ENG':'Pro','JPN':'Pro','VIET':'Pro'}, link: 'https://procorp.co.kr/'},
-      {option: {'KOR':'IEA','ENG':'IEA','JPN':'IEA','VIET':'IEA'}, link: 'https://www.iea.co.kr/'},
-      {option: {'KOR':'제이비트리','ENG':'JBTree','JPN':'JBTree','VIET':'JBTree'}, link: 'https://jbtree.co.kr/'}
-    ], renderOptionTextOnly);
+      {
+        option: {
+          'KOR':'프로',
+          'ENG':'Pro',
+          'JPN':'Pro',
+          'VIET':'Pro'
+        },
+        link: 'https://procorp.co.kr/'
+      },
+      {
+        option: {
+          'KOR':'IEA',
+          'ENG':'IEA',
+          'JPN':'IEA',
+          'VIET':'IEA'
+        },
+        link: 'https://www.iea.co.kr/'
+      },
+      {
+        option: {
+          'KOR':'제이비트리',
+          'ENG':'JBTree',
+          'JPN':'JBTree',
+          'VIET':'JBTree'
+        },
+        link: 'https://jbtree.co.kr/'
+      },
+    ], renderOptionTextOnly, true);
 });
 
 
