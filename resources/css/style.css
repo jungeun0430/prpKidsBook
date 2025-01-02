@@ -485,6 +485,7 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec5 .desc-wrap {/*margin-bottom:32px;*/padding:0 24px;max-width:100%;}
     #sec5 .image-wrap{width: 100%;height:calc(100vh - 330px);}
     #sec5 .image-wrap.sec5-eng-ver {height: calc(100vh - 330px);}
+    /*#sec5 .image-wrap.sec5-viet-ver {height: calc(100vh - 352px);}*/
     #sec7 > .inner-wrap{max-width:initial;padding: 50px 24px;}
     header{width: 100%;}
     header > .inner-wrap {max-width:100%;padding:0 12px;}
@@ -636,6 +637,8 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     #sec5 .image-wrap.sec5-kor-ver {padding:0 12px;height: calc(100vh - 280px);}
     #sec5 .image-wrap.sec5-jpn-ver {padding:0 12px;height: calc(100vh - 280px);}
     #sec5 .image-wrap.sec5-eng-ver {padding:0 12px;height: calc(100vh - 280px);}
+    #sec4 .image-wrap.sec5-viet-ver {padding:0 12px;height: calc(100vh - 355px);}
+    #sec5 .image-wrap.sec5-viet-ver {padding:0 12px;height: calc(100vh - 355px);}
 
     /* sec6 */
     #sec6 {overflow: hidden;position: relative;background-color:#fff;z-index: 10000;}
