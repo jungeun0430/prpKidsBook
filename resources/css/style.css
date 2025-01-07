@@ -454,7 +454,7 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .contents-wrap {width:100%;}
     .desc-wrap {width:100%;margin:0;padding:0 24px;}
     #sec1 { height: 100vh;}
-    #sec1 > .inner-wrap{max-width:100%;padding-right: 24px;padding-left:24px;padding-top:200px;}
+    #sec1 > .inner-wrap{max-width:100%;padding-right: 24px;padding-left:24px;padding-top:200px;padding-top:327px;}
     #sec1 > .inner-wrap.sec1-env-ver{padding-bottom: 70px;}
     #sec1 .text-wrap {padding-top:160px;}
     #sec1 .text-wrap .book{width:144px;height:150px;}
@@ -584,13 +584,21 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .btn.small-ver{width:120px;height:48px;font-size:14px;padding:14px;}
 
     /* sec1 */
-    #sec1 > img {width:100%;height:auto;}
+    #sec1 {
+        height: 100vh;
+        background: url('/resources/images/contents/sec1_bg2.png') no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: -290px;
+    }
+    /*#sec1 .text-wrap > h2 > span {font-size: 7.0vw;}*/
+    #sec1 > img {display: none;}
     #sec1 .star{width:100px;height:100px;top:-60px;right:-20px;background-size:80px;}
     #sec1 .star > .small1{width:25px;height:25px;left:0;top:-10px;animation: float 2.3s ease-in-out infinite;}
     #sec1 .star > .small2{width:16px;height:16px;left:10px;top:20px;animation: float 2.4s ease-in-out infinite;}
     #sec1 .text-wrap { padding-top: 55px;}
     #sec1 .text-wrap .book {width: 50px; height: 45px;}
-    #sec1 .text-wrap > h2 > span {font-size: 28px;}
+    #sec1 .text-wrap > h2 > span {font-size: 7.0vw;}
     #sec1 .text-wrap > h2 + .btn-wrap { margin-top: 19px;gap:12px;}
     #sec1 .btn-wrap {gap:10px;}
     #sec1  .download-badge { display: inline-block; height: 38px; }
@@ -712,15 +720,6 @@ h2.sub-title{text-align:center;font-size:40px;font-weight:600;color:#151515;marg
     .check-box label > input + span:before{width:16px;height:16px;}
 }
 @media (max-width: 500px) {
-    #sec1 {
-        height: 100vh;
-        background: url('/resources/images/contents/sec1_bg2.png') no-repeat;
-        background-size: cover;
-        background-position-x: center;
-        background-position-y: -290px;
-    }
-    #sec1 .text-wrap > h2 > span {font-size: 7.0vw;}
-    #sec1 > img {display: none;}
     .sec7_swiper_slide{width:75%;}
     /*.sec7_swiper_slide{display: none!important;}*/
     header h1{width:70px;}

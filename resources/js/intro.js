@@ -1,8 +1,36 @@
 document.addEventListener("DOMContentLoaded", function(){
   /* 컨텐츠 내 독립적인 스크립트 */
-  let vh = window.innerHeight * 0.01;
-// Then we set the value in the --vh custom property to the root of the document
-  document.querySelector('#sec1').style.height = `${100 * vh}px`;;
+  let resizeTimeout;
+
+// 초기 실행
+  function updateSectionHeight() {
+    let iw = window.innerWidth;
+    const sec1 = document.querySelector('#sec1');
+
+    if (iw <= 700) {
+      let vh = window.innerHeight * 0.01;
+      sec1.style.height = `${100 * vh}px`;
+      sec1.style.minHeight = ''; // 기존 스타일 초기화
+    } else {
+      sec1.style.height = 'auto';
+      sec1.style.minHeight = '100vh';
+    }
+  }
+
+// 리사이즈 이벤트 핸들러
+  function onResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateSectionHeight(); // 마지막 크기 기준으로 처리
+    }, 200); // 디바운스 시간 (밀리초)
+  }
+
+// 초기 실행
+  updateSectionHeight();
+
+// 리사이즈 이벤트 등록
+  window.addEventListener('resize', onResize);
+
   /* 컨텐츠 내 독립적인 스크립트 */
   /* sec1 + header : 글자 효과 + 스크롤시 헤더 안의 색상 변경 */
   window.addEventListener('load', animateElements);

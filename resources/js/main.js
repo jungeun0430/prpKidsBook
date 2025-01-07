@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function(){
     KR: 'korea_4.png',
     EN: 'america_4.png',
     JP: 'japan_4.png',
-    VN: 'viet.svg'
+    VN: 'viet.svg',
+    CN:'china.png'
   };
   function rendererHeader(selectedOption) {
     let selectedFlagImage = flagImages[selectedOption];
@@ -186,7 +187,8 @@ document.addEventListener("DOMContentLoaded", function(){
           KR: '/resources/images/header/korea_4.png',
           EN: '/resources/images/header/america_4.png',
           JP: '/resources/images/header/japan_4.png',
-          VN: '/resources/images/header/viet.svg'
+          VN: '/resources/images/header/viet.svg',
+          CN: '/resources/images/header/china.png',
         };
         label.querySelector('.label-img').src = flagImages[option]; // 라벨 이미지 업데이트
         label.querySelector('.label-img').alt = `${option} flag`; // alt 속성 업데이트
@@ -233,7 +235,8 @@ document.addEventListener("DOMContentLoaded", function(){
       KR: '/resources/images/header/korea_4.png',
       EN: '/resources/images/header/america_4.png',
       JP: '/resources/images/header/japan_4.png',
-      VN: '/resources/images/header/viet.svg'
+      VN: '/resources/images/header/viet.svg',
+      CN: '/resources/images/header/china.png'
     };
     img.src = flagImages[option];
     img.alt = `${option} flag`;
@@ -299,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // 1-3. 각 드롭다운에 맞게 초기화
   // 실행문 : header dropdown
   const dropdown1 = document.querySelector('.dropdown1');
-  initDropdown(dropdown1, ['KR', 'EN', 'JP','VN'], renderOptionWithImage); //['KR', 'EN', 'JP','VN']
+  initDropdown(dropdown1, ['KR', 'EN', 'JP','VN','CN'], renderOptionWithImage); //['KR', 'EN', 'JP','VN']
 
   // 실행문 : footer dropdown
   const dropdown2 = document.querySelector('.dropdown2');
@@ -309,7 +312,8 @@ document.addEventListener("DOMContentLoaded", function(){
         'KR':'프로',
         'EN':'Pro',
         'JP':'Pro',
-        'VN':'Pro'
+        'VN':'Pro',
+        'CN':'Pro',
       },
       link: 'https://procorp.co.kr/'
     },
@@ -318,7 +322,8 @@ document.addEventListener("DOMContentLoaded", function(){
         'KR':'IEA',
         'EN':'IEA',
         'JP':'IEA',
-        'VN':'IEA'
+        'VN':'IEA',
+        'CN':'IEA',
       },
       link: 'https://www.iea.co.kr/'
     },
@@ -327,7 +332,8 @@ document.addEventListener("DOMContentLoaded", function(){
         'KR':'제이비트리',
         'EN':'JBTree',
         'JP':'JBTree',
-        'VN':'JBTree'
+        'VN':'JBTree',
+        'CN':'JBTree',
       },
       link: 'https://jbtree.co.kr/'
     },
