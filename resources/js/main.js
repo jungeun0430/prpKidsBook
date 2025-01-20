@@ -65,21 +65,23 @@ document.addEventListener("DOMContentLoaded", function(){
             </div>
             <div class="footer-info-wrap">
                 <div>
-                    <ul class="policy-wrap">
-                        <li><a href="/pages/policy/terms-of-policy" data-translate="footer_1">이용약관</a></li>
-                        <li><a href="/pages/policy/privacy-policy" data-translate="footer_2">개인정보처리방침</a></li>
-                        <li><button type="button" data-translate="footer_3"  onclick="openModal('#modla1')">이메일무단수집거부</button></li>
+                <div class="policySwiper swiper">
+                   <ul class="policy-wrap swiper-wrapper">
+                        <li class="swiper-slide"><a href="/pages/policy/terms-of-policy" data-translate="footer_1">이용약관</a></li>
+                        <li class="swiper-slide"><a href="/pages/policy/privacy-policy" data-translate="footer_2">개인정보처리방침</a></li>
+                        <li class="swiper-slide"><button type="button" data-translate="footer_3"  onclick="openModal('#modla1')">이메일무단수집거부</button></li>
                     </ul>
+                </div>
                     <p class="em" data-translate="footer_cop">(주)아이이에이</p>
                     <ul class="place-info">
-                      <li data-translate="footer_pi_1">대표이사: 최중배</li>
-                      <li data-translate="footer_pi_2">사업자등록번호: 315-81-37674</li>
-                      <li data-translate="footer_pi_3">통신판매업신고: 제 2020-서울송파-2351호</li>
+                      <li data-translate="footer_pi_1">대표이사 : 최중배</li>
+                      <li data-translate="footer_pi_2">사업자등록번호 : 315-81-37674</li>
+                      <li data-translate="footer_pi_3">통신판매업신고 : 제 2020-서울송파-2351호</li>
                     </ul>
                     <ul class="place-info">
-                      <li data-translate="footer_pi_4">주소: 서울특별시 송파구 법원로8길 8 SKV1 910호 (05855)</li>
-                      <li data-translate="footer_pi_5">고객센터: 02-6269-0630</li>
-                      <li><a href="mailto:prokidsbook@iea.co.kr"  data-translate="footer_pi_6">메일: prokidsbook@iea.co.kr</a></li> 
+                      <li data-translate="footer_pi_4">주소 : 서울특별시 송파구 법원로8길 8 SKV1 910호 (05855)</li>
+                      <li data-translate="footer_pi_5">고객센터 : 02-6269-0630</li>
+                      <li><span data-translate="footer_pi_6">이메일: </span> <a href="mailto:prokidsbook@iea.co.kr"  data-translate="footer_pi_6">prokidsbook@iea.co.kr</a></li> 
                     </ul>
                     <p class="copyright" data-translate="footer_pi_7">Copyright ⓒ IEA. All Rights Reserved.</p>
                 </div>
@@ -264,8 +266,13 @@ document.addEventListener("DOMContentLoaded", function(){
         return response.json();
       })
       .then(data => {
-        // console.log(data,path)
         updateLanguage(data, path); // 언어 데이터 업데이트 호출
+        setTimeout(function() {
+          destroyFooterSwiper();
+          setTimeout(function() {
+            callFooterSwiper();
+          });
+        },20);
       })
       .catch(error => {
         console.error("Error fetching translation data:", error);
@@ -371,6 +378,21 @@ document.addEventListener("DOMContentLoaded", function(){
     },
   ], renderOptionTextOnly, true);
 });
+
+var policySwiper; // Swiper 인스턴스에 전역 접근 가능하도록 변수 정의
+
+function callFooterSwiper() {
+  policySwiper = new Swiper('.policySwiper', {
+    slidesPerView: "auto",
+    watchOverflow: true,
+  });
+}
+
+function destroyFooterSwiper() {
+  if (policySwiper) {
+    policySwiper.destroy(); // Swiper 인스턴스 파괴
+  }
+}
 
 /* 팝업 */
 /* popup창 열기 */
