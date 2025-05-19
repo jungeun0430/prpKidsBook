@@ -1958,6 +1958,12 @@ const PPH_KR = `
                                 <li>신규 서비스 개발 및 인증 서비스, 맞춤 서비스제공, 통계학적 특성에 따른 서비스 제공 및 광고 게재, 이벤트 및 광고성 정보 제공 및 참여기회 제공, 접속 빈도 파악, 이용자의 서비스 이용에 대한 통계, 서비스의 유효성 확인</li>
                             </ul>
                         </li>
+                        <li>
+                            라. 사용자 얼굴 사진 수집 목적
+                            <ul class="sub-list dot-ver">
+                                <li>얼굴 이미지는 AI 이미지 생성 기능을 제공하기 위해 사용되며, 사용자 동의하에 수집됩니다. 얼굴 이미지는 이미지 생성 작업 완료 후 즉시 삭제되며, 별도로 저장되지 않습니다. 수집된 얼굴 이미지는 AI 모델 학습이나 기타 용도로 사용되지 않으며, 오직 사용자가 요청한 이미지 생성 작업을 수행하는 데만 활용됩니다.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div class="info-box">
@@ -1981,7 +1987,15 @@ const PPH_KR = `
                     <ul class="text-list">
                         <li>회원탈퇴, 개인정보의 수집 및 이용목적이 달성된 경우 회원의 개인정보를 지체 없이 파기합니다. 단, 아래 각 사유 및 기간에 한하여 예외적으로 회원의 개인정보를 보유합니다.</li>
                         <li>
-                            가. 회사 내부 정책에 의한 경우 불량 이용자의 재가입 방지, 부정이용 방지, 기타 민원 및 질의 응답 대응
+                            가. 얼굴 이미지 보유 및 이용기간
+                            <ul class="sub-list dot-ver">
+                                <li>
+                                   얼굴이미지는 이미지 생성을 위해 30초 이내로 보관되며 이미지 생성된 이후 자동으로 삭제되어 별로도 보관되지 않습니다.
+                                </li>
+                            </ul>
+                        </li>                        
+                        <li>
+                            나. 회사 내부 정책에 의한 경우 불량 이용자의 재가입 방지, 부정이용 방지, 기타 민원 및 질의 응답 대응
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>보유기간:</em> (일반 회원의 탈퇴 후 재가입 방지를 위한 경우) 탈퇴 후 30일간(부정이용 및 이용규정 위반 대응을 위한 경우-불량이용자의 재가입 방지포함) 해당 부정이용 및 이용규정 위반 대응 사항에 대한 분쟁 해결 시 까지 로 하며, 분쟁 해결이 원만하지 않을 경우 이와 관련하여 관련 법령의 분쟁 조정 절차에 따르도록 합니다. (민원 또는 서비스 질의응답에 대한 경우) 해당 민원 또는 질의 응답 해결시까지
@@ -1992,7 +2006,7 @@ const PPH_KR = `
                             </ul>
                         </li>
                         <li>
-                            나. 회원이 직접 개인정보의 보전을 요청한 경우 또는 회사가 개별적으로 회원의 동의를 얻은 경우
+                            다. 회원이 직접 개인정보의 보전을 요청한 경우 또는 회사가 개별적으로 회원의 동의를 얻은 경우
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>보유기간 및 보유정보:</em> 회원의 요청 또는 동의를 얻는 항복/기간에 한하여 해당 기간 동안 보유
@@ -2000,7 +2014,7 @@ const PPH_KR = `
                             </ul>
                         </li>
                         <li>
-                            다. 법령에 의거, 이용자의 동의 없이 보존할 것을 정한 경우’전자상거래 등에서의 소비자보호에 관한 법률’에 의하여 아래의 명시 기간 동안 보관 관리합니다.
+                            라. 법령에 의거, 이용자의 동의 없이 보존할 것을 정한 경우’전자상거래 등에서의 소비자보호에 관한 법률’에 의하여 아래의 명시 기간 동안 보관 관리합니다.
                             <ul class="sub-list insert-ver">
                                 <li>가. 계약, 청약철회, 이용자 서비스 이용 내역 등의 거래에 관련한 기록: 5년 (본’가’항에 해당하는 기록의 경우 이용자 파악을 위한 식별자료는 최소한의 정보인 이메일 주소(ID) 및 휴대폰 번호에 한해 보관하며 기타 개인정보는 하기 ‘마’항 등에 따라 탈퇴 후 30일 이내 전부 파기됩니다.)</li>
                                 <li>나. 대금결제 및 재화 등의 공급에 관한 기록: 5년</li>
@@ -2210,6 +2224,12 @@ const PPH_CN = `
                                 <li>新服务开发及认证服务、提供定制服务、根据统计特性提供服务及投放广告、提供活动及广告信息及参与机会、分析访问频率、统计用户的服务使用情况、确认服务的有效性</li>
                             </ul>
                         </li>
+                        <li>
+                             d. 用户人脸照片收集目的
+                            <ul class="sub-list dot-ver">
+                                <li>人脸图像用于提供AI图像生成功能，且在用户同意的情况下收集。人脸图像在图像生成任务完成后即刻删除，且不进行单独保存。收集的人脸图像不会用于AI模型训练或其他用途，仅用于执行用户请求的图像生成任务。</li>
+                            </ul>
+                        </li>                        
                     </ul>
                 </div>
                 <div class="info-box">
@@ -2233,7 +2253,13 @@ const PPH_CN = `
                     <ul class="text-list">
                         <li>当会员注销，或个人信息的收集及使用目的达成时，公司将立即销毁会员的个人信息。但在以下情况及期限内，公司可能会例外性地保存会员的个人信息。</li>
                         <li>
-                            1) 根据公司内部政策 防止恶意用户重新注册、防止滥用、应对其他投诉及咨询
+                            1) 人脸图像的保存及使用期限
+                            <ul class="sub-list dot-ver">
+                                <li> 人脸图像仅为图像生成用途保存，保存时间不超过30秒，图像生成完成后即自动删除，不进行额外保存。</li>
+                            </ul>
+                        </li>                        
+                        <li>
+                            2) 根据公司内部政策 防止恶意用户重新注册、防止滥用、应对其他投诉及咨询
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>保存期限：</em>
@@ -2248,7 +2274,7 @@ const PPH_CN = `
                             </ul>
                         </li>
                         <li>
-                            2) 会员主动请求保留个人信息，或公司单独获得会员同意的情况
+                            3) 会员主动请求保留个人信息，或公司单独获得会员同意的情况
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>保存期限及保存信息：</em> 仅在会员的请求或同意范围及期间内保存
@@ -2256,7 +2282,7 @@ const PPH_CN = `
                             </ul>
                         </li>
                         <li>
-                            3) 根据法律规定，必须在未取得用户同意的情况下进行保存的情况
+                            4) 根据法律规定，必须在未取得用户同意的情况下进行保存的情况
                                 根据《电子商务等消费者保护相关法律》，以下信息将在规定期间内保存和管理：
                             <ul class="sub-list insert-ver">
                                 <li>a. 与合同、撤销申请、用户服务使用记录等交易相关的记录
@@ -2468,6 +2494,12 @@ const PPH_EN = `
                                 <li>Developing new services and authentication features, providing personalized services, delivering advertisements based on statistical characteristics, offering promotional opportunities, analyzing access frequency, and verifying service effectiveness.</li>
                             </ul>
                         </li>
+                        <li>
+                            D. Purpose of collecting user facial photos
+                            <ul class="sub-list dot-ver">
+                                <li> Facial images are used to provide AI image generation functions and are collected with user consent. Facial images are deleted immediately after the image generation task is completed and are not stored separately. Collected facial images are not used for AI model training or other purposes and are only utilized to perform the image generation requested by the user.</li>
+                            </ul>
+                        </li>                        
                     </ul>
                 </div>
                 <div class="info-box">
@@ -2492,7 +2524,13 @@ const PPH_EN = `
                     <ul class="text-list">
                         <li>The company will promptly destroy users' personal information once membership is withdrawn or when the purpose of collecting and using the information has been achieved. However, personal information may be retained in the following cases:</li>
                         <li>
-                            1) Retention Based on Internal Policy : To prevent re-registration by banned users, prevent fraudulent use, and respond to customer inquiries and complaints:
+                            1) Retention and Use Period of Facial Images
+                            <ul class="sub-list dot-ver">
+                                <li>Facial images are retained for no longer than 30 seconds solely to generate images. After the image generation is completed, the facial images are automatically deleted and are not stored separately.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            2) Retention Based on Internal Policy : To prevent re-registration by banned users, prevent fraudulent use, and respond to customer inquiries and complaints:
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>Retention Period:</em>
@@ -2507,7 +2545,7 @@ const PPH_EN = `
                             </ul>
                         </li>
                         <li>
-                            2) Retention Based on User Request or Additional Consent
+                            3) Retention Based on User Request or Additional Consent
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>Retention Period and Information:</em> Personal information will be retained for the requested period if explicitly requested by the user or agreed upon separately.
@@ -2515,7 +2553,7 @@ const PPH_EN = `
                             </ul>
                         </li>
                         <li>
-                            3) Retention Required by Law : Personal information will be retained without user consent in accordance with applicable laws, including the Act on Consumer Protection in Electronic Commerce, etc., as follows.
+                            4) Retention Required by Law : Personal information will be retained without user consent in accordance with applicable laws, including the Act on Consumer Protection in Electronic Commerce, etc., as follows.
                             <ul class="sub-list insert-ver">
                                 <li>a. Records related to contracts, withdrawal of offers, and service usage history: 5 years 
 (For these records, only the minimum required identification data, such as email address (ID) and mobile phone number, will be retained, while other personal information will be deleted within 30 days after withdrawal.)</li>
@@ -2757,6 +2795,12 @@ const PPH_JP = `
                               <li>アクセス頻度の分析、利用者のサービス利用に関する統計、サービスの有効性確認</li>
                             </ul>
                         </li>
+                        <li>
+                            (4) ユーザーの顔写真収集目的
+                            <ul class="sub-list dot-ver">
+                              <li>顔画像はAI画像生成機能を提供するために使用され、ユーザーの同意のもと収集されます。顔画像は画像生成作業完了後に直ちに削除され、別途保存されることはありません。収集された顔画像はAIモデルの学習やその他の目的には使用されず、ユーザーが依頼した画像生成作業のみに利用されます。</li>
+                            </ul>
+                        </li>                        
                     </ul>
                 </div>
                 <div class="info-box">
@@ -2785,7 +2829,13 @@ const PPH_JP = `
                     <ul class="text-list">
                         <li>当社は、会員の退会、または個人情報の収集および利用目的が達成された場合、会員の個人情報を遅滞なく破棄します。ただし、以下の事由および期間に限り、例外的に個人情報を保有します。</li>
                         <li>
-                            (1) 会社の内部方針による場合 : 不正利用者の再登録防止、不正利用防止、その他の苦情対応および問い合わせへの対応
+                            (1) 顔画像の保有および利用期間
+                            <ul class="sub-list dot-ver">
+                                <li>顔画像は画像生成のために30秒以内に保管され、画像生</li>
+                            </ul>
+                        </li>                       
+                        <li>
+                            (2) 会社の内部方針による場合 : 不正利用者の再登録防止、不正利用防止、その他の苦情対応および問い合わせへの対応
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>保有期間:</em>
@@ -2801,7 +2851,7 @@ const PPH_JP = `
                             </ul>
                         </li>
                         <li>
-                            (2) 会員が個人情報の保管を希望した場合、または会社が個別に同意を得た場合
+                            (3) 会員が個人情報の保管を希望した場合、または会社が個別に同意を得た場合
                             <ul class="sub-list dot-ver">
                                 <li>
                                     <em>保有期間および保有情報:</em> 会員の要請または同意を得た範囲・期間に限り保有
@@ -2809,7 +2859,7 @@ const PPH_JP = `
                             </ul>
                         </li>
                         <li>
-                        (3) 法令に基づき、利用者の同意なしに保存が求められる場合以下の法令に基づき、一定期間保管・管理します（「電子商取引等における消費者保護に関する法律」など）。
+                        (4) 法令に基づき、利用者の同意なしに保存が求められる場合以下の法令に基づき、一定期間保管・管理します（「電子商取引等における消費者保護に関する法律」など）。
                             <ul class="sub-list insert-ver">
                                 <li>① 契約、申込撤回、サービス利用履歴などの取引関連記録：5年間(この記録に該当する情報のうち、利用者識別のためのデータは、最低限の情報であるメールアドレス（ID）および携帯電話番号のみを保管し、その他の個人情報は以下「⑤」の規定に基づき退会後30日以内に全て破棄)</li>
                                 <li>② 料金決済および商品の提供に関する記録：5年間</li>
@@ -3036,6 +3086,12 @@ const PPH_VN = `
                                 <li>Phát triển và xác thực dịch vụ mới, cung cấp dịch vụ tùy chỉnh, đăng quảng cáo và cung cấp dịch vụ theo đặc điểm thống kê, cung cấp thông tin về sự kiện và quảng cáo, đo lường tần suất truy cập, thống kê việc sử dụng dịch vụ, xác minh hiệu quả của dịch vụ.</li>
                             </ul>
                         </li>
+                        <li>
+                            d. Mục đích thu thập ảnh khuôn mặt của người dùng
+                            <ul class="sub-list dot-ver">
+                                <li>Ảnh khuôn mặt được sử dụng để cung cấp chức năng tạo ảnh AI và được thu thập với sự đồng ý của người dùng. Ảnh khuôn mặt sẽ được xóa ngay sau khi hoàn thành việc tạo ảnh và không được lưu trữ riêng biệt. Ảnh khuôn mặt thu thập không được sử dụng cho việc đào tạo mô hình AI hoặc các mục đích khác, chỉ được sử dụng để thực hiện công việc tạo ảnh theo yêu cầu của người dùng.</li>
+                            </ul>
+                        </li>                        
                     </ul>
                 </div>
                 <div class="info-box">
@@ -3059,39 +3115,11 @@ Tất cả người dùng cần cung cấp thông tin cá nhân để nhận d�
                     <ul class="text-list">
                         <li>Công ty sẽ hủy ngay thông tin cá nhân của người dùng khi họ hủy đăng ký hoặc khi mục đích thu thập và sử dụng thông tin cá nhân đã đạt được. Tuy nhiên, trong các trường hợp dưới đây, thông tin cá nhân có thể được lưu trữ trong thời gian nhất định.</li>
                         <li>
-                            1) Trường hợp theo chính sách nội bộ của công ty : Ngăn chặn đăng ký lại của người dùng vi phạm, ngăn chặn sử dụng trái phép, xử lý khiếu nại và trả lời thắc mắc.
+                            1)  Thời gian lưu giữ và sử dụng ảnh khuôn mặt
                             <ul class="sub-list dot-ver">
-                                <li>
-                                    <em>Thời gian lưu trữ:</em><br>
-                                    (Trường hợp ngăn chặn đăng ký lại của người dùng sau khi hủy đăng ký) 30 ngày sau khi hủy.
-                                    <br>(Trường hợp xử lý vi phạm và sử dụng trái phép, bao gồm ngăn chặn đăng ký lại của người dùng vi phạm) cho đến khi tranh chấp được giải quyết. Nếu tranh chấp không thể giải quyết suôn sẻ, sẽ tuân theo quy trình điều chỉnh tranh chấp theo quy định của pháp luật liên quan.
-                                    <br>(Trường hợp khiếu nại hoặc yêu cầu hỗ trợ dịch vụ) cho đến khi khiếu nại hoặc yêu cầu được giải quyết.
-                                </li>
-                                <li>
-                                    <em>Thông tin lưu trữ:</em>이메일 주소(ID), 휴대전화번호, 닉네임, 성명, 중복 가입 또는 부정가입 방지 목적을 위한 식별 정보(이용자 사진, 계정정보, 이용자 기기정보 등), 중복가입 확인정보, 가입일, 탈퇴일, 승인일, 해당 민원/질의응답 내용 또는 부정/위반 이용행위 내용 기록
-                                </li>
+                                <li>Ảnh khuôn mặt được lưu trữ trong vòng 30 giây để phục vụ việc tạo ảnh, và sẽ tự động xóa sau khi hoàn thành việc tạo ảnh, không lưu trữ riêng biệt</li>>
                             </ul>
-                        </li>
-                        <li>
-                            (2) Trường hợp người dùng trực tiếp yêu cầu bảo quản thông tin cá nhân hoặc công ty lấy sự đồng ý riêng biệt từ người dùng.
-                            <ul class="sub-list dot-ver">
-                                <li>
-                                    <em>hời gian lưu trữ và thông tin lưu trữ:</em> Lưu trữ trong thời gian được người dùng yêu cầu hoặc đồng ý.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            (3) Trường hợp theo quy định của pháp luật, thông tin cá nhân được lưu trữ mà không cần sự đồng ý của người dùng, theo "Luật Bảo vệ người tiêu dùng trong giao dịch thương mại điện tử", thông tin cá nhân sẽ được lưu trữ như sau
-                            <ul class="sub-list insert-ver">
-                                <li>a. Hồ sơ giao dịch liên quan đến hợp đồng, hủy hợp đồng, lịch sử sử dụng dịch vụ của người dùng: 5 năm
-(Trong trường hợp này, dữ liệu nhận dạng người dùng sẽ chỉ lưu trữ địa chỉ email (ID) và số điện thoại, các thông tin cá nhân khác sẽ bị xóa hoàn toàn trong vòng 30 ngày sau khi hủy đăng ký.)</li>
-                                <li>b. Hồ sơ thanh toán và cung cấp hàng hóa, dịch vụ: 5 năm</li>
-                                <li>c. Hồ sơ khiếu nại của người tiêu dùng hoặc giải quyết tranh chấp: 5 năm
-(Trong trường hợp này, dữ liệu nhận dạng người dùng sẽ chỉ lưu trữ địa chỉ email (ID) và số điện thoại, các thông tin cá nhân khác sẽ bị xóa hoàn toàn trong vòng 7 ngày sau khi hủy đăng ký.)</li>
-                                <li>d. Hồ sơ về lịch sử truy cập trang web: 3 tháng</li>
-                                <li>e. Thông tin cá nhân khác không thuộc các mục a-d: 7 ngày sau khi gửi yêu cầu hủy đăng ký.</li>
-                            </ul>
-                        </li>
+                        </li>                       
                     </ul>
                 </div>
                 <div class="info-box">
